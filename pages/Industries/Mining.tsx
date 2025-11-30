@@ -4,19 +4,19 @@ import { DollarSign, Clock, AlertTriangle, ArrowRight } from 'lucide-react';
 
 const PAIN_POINTS = [
     {
-        title: "SAG Mill Downtime",
-        cost: "$150k / Hour",
-        description: "When the mill stops, the mine stops. We monitor trunnion bearings and ring gear vibration to prevent unplanned outages."
+        title: "Moram Molendini SAG",
+        cost: "$150k / Hora",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet orci at metus volutpat, id interdum dui vehicula."
     },
     {
-        title: "Crusher Failure",
-        cost: "$85k / Hour",
-        description: "Impact loads destroy bearings. Our remote monitoring systems catch early-stage defects before they become catastrophic seizures."
+        title: "Defectio Contusoris",
+        cost: "$85k / Hora",
+        description: "Suspendisse euismod urna ut lectus tincidunt, in dictum magna ultricies. Aliquam erat volutpat."
     },
     {
-        title: "Conveyor Criticality",
-        cost: "$40k / Hour",
-        description: "A seized idler can cause a fire. We use thermal imaging and ultrasound to inspect miles of conveyor in a single shift."
+        title: "Periculum Conveyorii",
+        cost: "$40k / Hora",
+        description: "Nullam id lectus at massa dignissim venenatis. Pellentesque habitant morbi tristique senectus et netus."
     }
 ];
 
@@ -31,14 +31,14 @@ export const Mining: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10 w-full">
                     <RevealSection>
                         <div className="inline-block bg-brand-gold/20 border border-brand-gold/50 px-4 py-2 mb-6">
-                            <span className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">Industry Vertical: Mining & Extraction</span>
+                            <span className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">Linea Industria: Metalla et Extractio</span>
                         </div>
                         <h1 className="font-display font-black text-5xl md:text-8xl uppercase tracking-tighter mb-6 leading-[0.9]">
-                            Protect the<br />
-                            Critical Path.
+                            Tuta<br />
+                            Via Necessaria.
                         </h1>
                         <p className="font-sans text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-10">
-                            From the Face to the Mill: Ensuring the Ore Never Stops Moving. We operate where others fail.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta nunc sed ipsum ultricies, id tincidunt arcu tristique.
                         </p>
                     </RevealSection>
                 </div>
@@ -49,12 +49,12 @@ export const Mining: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                     <RevealSection>
                         <div className="mb-16 max-w-3xl">
-                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-red mb-4">The Reality</h3>
+                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-red mb-4">Res Vera</h3>
                             <h2 className="font-display font-black text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
-                                The High Cost of Silence.
+                                Sumptus Tacentis.
                             </h2>
                             <p className="font-sans text-lg text-gray-400 leading-relaxed">
-                                In mining, silence means downtime. And downtime costs millions. We keep the noise—and the revenue—flowing.
+                                Vestibulum vitae lectus eget nibh dapibus tincidunt. Integer egestas lorem vel lacus dictum, a iaculis risus consequat.
                             </p>
                         </div>
                     </RevealSection>
@@ -67,10 +67,10 @@ export const Mining: React.FC = () => {
                                         <AlertTriangle className="w-8 h-8 text-brand-gold" />
                                         <span className="font-sans text-xl text-brand-red font-bold">{point.cost}</span>
                                     </div>
-                                    <h3 className="font-display font-bold text-2xl uppercase tracking-wide mb-4">{point.title}</h3>
-                                    <p className="font-sans text-gray-400 text-sm leading-relaxed">
-                                        {point.description}
-                                    </p>
+                                <h3 className="font-display font-bold text-2xl uppercase tracking-wide mb-4">{point.title}</h3>
+                                <p className="font-sans text-gray-400 text-sm leading-relaxed">
+                                    {point.description}
+                                </p>
                                 </div>
                             </RevealSection>
                         ))}
@@ -88,43 +88,42 @@ export const Mining: React.FC = () => {
 
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
-                                <div className="inline-flex items-center gap-2 mb-6">
-                                    <span className="w-3 h-3 bg-brand-red rounded-full animate-pulse" />
-                                    <span className="font-sans text-xs text-brand-red uppercase tracking-widest font-bold">Case File: Potash Mine Hoist</span>
-                                </div>
+                                    <div className="inline-flex items-center gap-2 mb-6">
+                                        <span className="w-3 h-3 bg-brand-red rounded-full animate-pulse" />
+                                    <span className="font-sans text-xs text-brand-red uppercase tracking-widest font-bold">Documentum: Tractus Salsae</span>
+                                    </div>
                                 <h2 className="font-display font-black text-4xl md:text-6xl text-text-main uppercase tracking-tight mb-8">
-                                    Saved: $1.2M<br />
-                                    Avoided: 48 Hrs
+                                    Servatum: $1.2M<br />
+                                    Vitata: 48 Horae
                                 </h2>
                                 <p className="font-sans text-lg text-text-muted leading-relaxed mb-8 max-w-xl">
-                                    Routine spectral analysis detected a cage frequency defect in the main hoist bearing.
-                                    Primac coordinated a planned replacement during a shift change, preventing a catastrophic seize-up
-                                    that would have halted all production and endangered personnel.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus magna et risus faucibus, eget suscipit leo sagittis.
+                                    Primac ordinavit substitutionem destinatum mutatione vigiliae, vitans discrimen quod productionem omnem intermisisset.
                                 </p>
                                 <button className="inline-flex items-center gap-3 font-display font-bold text-sm uppercase tracking-[0.2em] text-text-main hover:text-brand-gold transition-colors">
-                                    Read Full Case Study
+                                    Lege Causam Totam
                                     <ArrowRight className="w-5 h-5" />
                                 </button>
                             </div>
 
                             <div className="bg-white p-8 shadow-lg">
-                                <h4 className="font-display font-bold text-sm uppercase tracking-widest text-text-muted mb-6">Diagnostic Data</h4>
+                            <h4 className="font-display font-bold text-sm uppercase tracking-widest text-text-muted mb-6">Data Diagnostica</h4>
                                 <div className="space-y-4">
                                     <div className="flex justify-between border-b border-gray-100 pb-2">
-                                        <span className="font-sans text-xs text-gray-500 font-bold">ASSET</span>
-                                        <span className="font-sans text-xs font-bold text-text-main">MAIN SKIP HOIST</span>
+                                        <span className="font-sans text-xs text-gray-500 font-bold">BONUM</span>
+                                        <span className="font-sans text-xs font-bold text-text-main">TRACTUS PRINCIPIS</span>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-100 pb-2">
-                                        <span className="font-sans text-xs text-gray-500 font-bold">FAULT</span>
-                                        <span className="font-sans text-xs font-bold text-brand-red">INNER RACE DEFECT (BPFI)</span>
+                                        <span className="font-sans text-xs text-gray-500 font-bold">VITIUM</span>
+                                        <span className="font-sans text-xs font-bold text-brand-red">DEFECTUS INTERIOR (BPFI)</span>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-100 pb-2">
-                                        <span className="font-sans text-xs text-gray-500 font-bold">SEVERITY</span>
-                                        <span className="font-sans text-xs font-bold text-brand-red">CRITICAL (ISO ZONE D)</span>
+                                        <span className="font-sans text-xs text-gray-500 font-bold">GRAVITAS</span>
+                                        <span className="font-sans text-xs font-bold text-brand-red">CRITICA (ISO ZONA D)</span>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-100 pb-2">
-                                        <span className="font-sans text-xs text-gray-500 font-bold">OUTCOME</span>
-                                        <span className="font-sans text-xs font-bold text-green-600">PLANNED REPLACEMENT</span>
+                                        <span className="font-sans text-xs text-gray-500 font-bold">EXITUS</span>
+                                        <span className="font-sans text-xs font-bold text-green-600">SUBSTITUTIO PRAEVISA</span>
                                     </div>
                                 </div>
                             </div>

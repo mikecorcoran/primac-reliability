@@ -38,22 +38,22 @@ export const Hero: React.FC = () => {
           className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-brand-gold text-white"
         >
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
-            The Stillness<br />
-            of Reliability.
+            Quies<br />
+            Fidelitatis.
           </h2>
 
           <div className="mb-8">
             <p className="font-sans text-gray-200 text-base leading-relaxed">
-              Entropy never sleeps. Neither do we. Protecting Western Canada's critical infrastructure from catastrophic failure.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus in urna a gravida, cum inceptos hymenaeos.
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-4">
             <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 bg-brand-red text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-red-700 transition-colors">
-              Deploy a Specialist
+              Mitte Peritum
             </a>
             <a href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-white text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors">
-              Explore Capabilities
+              Explora Facultates
             </a>
           </div>
         </motion.div>

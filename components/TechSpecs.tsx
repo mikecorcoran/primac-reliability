@@ -2,11 +2,11 @@ import React from 'react';
 import { RevealSection } from './RevealSection';
 
 const SPECS = [
-  { label: 'Operating Temp', value: '-40°C to +120°C', code: 'OP-TMP' },
-  { label: 'Tensile Strength', value: '2400 MPa', code: 'TN-STR' },
-  { label: 'Precision Rating', value: 'ISO Class 0', code: 'PR-ISO' },
-  { label: 'Warranty', value: 'Lifetime Guarantee', code: 'WR-LIF' },
-  { label: 'Maintenance Interval', value: '5000 Hours', code: 'MN-INT' },
+  { label: 'Temperies Operans', value: '-40°C ad +120°C', code: 'OP-TMP' },
+  { label: 'Robur Tractile', value: '2400 MPa', code: 'TN-STR' },
+  { label: 'Gradus Praecisionis', value: 'ISO Class 0', code: 'PR-ISO' },
+  { label: 'Cautio', value: 'Vitae Praestatio', code: 'WR-LIF' },
+  { label: 'Tempus Sustentationis', value: '5000 Horae', code: 'MN-INT' },
 ];
 
 export const TechSpecs: React.FC = () => {
@@ -18,11 +18,11 @@ export const TechSpecs: React.FC = () => {
           {/* Section Title */}
           <div className="col-span-1 md:col-span-4">
             <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight mb-6 leading-none">
-              Technical <br />
-              Mastery
+              Ars Technica<br />
+              Perfecta
             </h2>
             <p className="text-text-muted font-sans leading-relaxed max-w-sm text-lg">
-              Our engineering process leaves nothing to chance. Every micron is accounted for, every stress vector calculated.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at cursus mi, vitae dictum libero.
             </p>
           </div>
 

@@ -3,17 +3,17 @@ import { RevealSection } from '../components/RevealSection';
 import { Shield, CheckCircle, FileText, AlertOctagon } from 'lucide-react';
 
 const SAFETY_STATS = [
-    { label: "Lost Time Incidents", value: "0", sub: "Since 2018" },
-    { label: "Total Man Hours", value: "450k+", sub: "Without Injury" },
-    { label: "Field Audits", value: "100%", sub: "Compliance Rate" },
-    { label: "Stop Work Authority", value: "Active", sub: "All Personnel" }
+    { label: "Casus Temporis Amissi", value: "0", sub: "Ab Anno 2018" },
+    { label: "Horae Laboris Totales", value: "450k+", sub: "Sine Laesione" },
+    { label: "Inspectiones Campi", value: "100%", sub: "Rata Obsequii" },
+    { label: "Potestas Operis Sistere", value: "Activa", sub: "Omnis Persona" }
 ];
 
 const CERTIFICATIONS = [
-    { name: "COR Certified", issuer: "Energy Safety Canada", status: "Active" },
-    { name: "ISNetworld", issuer: "Grade A", status: "Verified" },
-    { name: "ComplyWorks", issuer: "Green Status", status: "Verified" },
-    { name: "Avetta", issuer: "Prequalified", status: "Verified" }
+    { name: "COR Probatus", issuer: "Energy Safety Canada", status: "Activum" },
+    { name: "ISNetworld", issuer: "Gradus A", status: "Probatus" },
+    { name: "ComplyWorks", issuer: "Status Viridis", status: "Probatus" },
+    { name: "Avetta", issuer: "Praeparatus", status: "Probatus" }
 ];
 
 export const TrustAndSafety: React.FC = () => {
@@ -27,14 +27,14 @@ export const TrustAndSafety: React.FC = () => {
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 mb-6 text-brand-red">
                             <Shield className="w-5 h-5" />
-                            <span className="font-sans text-xs uppercase tracking-widest font-bold">The Shield</span>
+                            <span className="font-sans text-xs uppercase tracking-widest font-bold">Clypeus</span>
                         </div>
                         <h1 className="font-display font-black text-5xl md:text-7xl uppercase tracking-tighter mb-6 leading-[0.9]">
-                            Zero Harm.<br />
-                            Zero Compromise.
+                            Nulla Laesio.<br />
+                            Nulla Concessio.
                         </h1>
                         <p className="font-sans text-xl text-gray-400 max-w-2xl leading-relaxed">
-                            Reliability is pointless if it isn't safe. Our record speaks for itself. We prioritize the sanctity of life above all else.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales, orci vitae egestas vehicula, metus felis sollicitudin risus, et interdum arcu mi ac nisi.
                         </p>
                     </RevealSection>
                 </div>
@@ -46,8 +46,8 @@ export const TrustAndSafety: React.FC = () => {
                     <RevealSection>
                         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                             <div>
-                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Live Metrics</h3>
-                                <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Safety Dashboard</h2>
+                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Mensurae Vivae</h3>
+                                <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Tabula Salutis</h2>
                             </div>
                             <div className="hidden md:block">
                                 <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ export const TrustAndSafety: React.FC = () => {
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                     </span>
-                                    <span className="font-sans text-xs text-text-muted uppercase font-bold">System Status: Operational</span>
+                                    <span className="font-sans text-xs text-text-muted uppercase font-bold">Status Systematis: Operativus</span>
                                 </div>
                             </div>
                         </div>
@@ -80,10 +80,10 @@ export const TrustAndSafety: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                     <RevealSection>
                         <div className="mb-16 max-w-3xl">
-                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Compliance</h3>
-                            <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight mb-6">Verified & Vetted</h2>
+                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Obsequium</h3>
+                            <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight mb-6">Probata et Perspecta</h2>
                             <p className="font-sans text-lg text-text-muted leading-relaxed">
-                                We maintain active good standing with all major Western Canadian compliance registries. We are pre-qualified for your site.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed fringilla magna, sed egestas ex. Praeparamur ut situs tuus accipiat.
                             </p>
                         </div>
                     </RevealSection>
@@ -111,14 +111,14 @@ export const TrustAndSafety: React.FC = () => {
                                 <AlertOctagon className="w-8 h-8 text-brand-red" />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main mb-2">Stop Work Authority</h3>
+                                <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main mb-2">Potestas Operis Sistere</h3>
                                 <p className="font-sans text-text-muted leading-relaxed">
-                                    Every Primac technician has absolute authority to stop work if conditions are unsafe.
-                                    We balance the urgency of uptime with the sanctity of life. No exceptions.
+                                    Omnis technicus Primac plenam auctoritatem habet opus sistere si condicio est infesta.
+                                    Urgentiam temporis cum sanctitate vitae aequamus. Nulla exceptio.
                                 </p>
                             </div>
                             <button className="whitespace-nowrap bg-white border border-gray-200 text-text-main px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors">
-                                View Safety Manual
+                                Vide Manuale Salutis
                             </button>
                         </div>
                     </RevealSection>

@@ -146,7 +146,7 @@ export const Header: React.FC = () => {
               href="tel:+18005550199"
               className="bg-brand-red text-white px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-red-700 transition-colors"
             >
-              24/7 Dispatch
+              24/7 Praesidium
             </a>
           </div>
 
@@ -198,8 +198,8 @@ export const Header: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                     <div className="absolute bottom-8 left-8 bg-white p-6 shadow-lg max-w-xs">
-                      <p className="font-display text-xs text-brand-gold uppercase tracking-widest mb-2">Featured Service</p>
-                      <p className="font-display text-xl font-bold text-text-main uppercase tracking-tight">Vibration Analysis</p>
+                      <p className="font-display text-xs text-brand-gold uppercase tracking-widest mb-2">Ministerium Insigne</p>
+                      <p className="font-display text-xl font-bold text-text-main uppercase tracking-tight">Analytica Vibrationum</p>
                     </div>
                   </div>
                 </div>
