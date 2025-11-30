@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, ArrowRight, Search } from 'lucide-react';
 import { NavItem } from '../types';
 
 const NAV_ITEMS: NavItem[] = [
@@ -123,10 +122,11 @@ export const Header: React.FC = () => {
                 >
                   {item.label}
                   {item.children && (
-                    <ChevronDown
-                      className={`w-3 h-3 transition-transform duration-300 ${hoveredItem === item.label ? 'rotate-180 text-brand-gold' : ''
-                        }`}
-                    />
+                    <span
+                      className={`text-[10px] transition-transform duration-300 ${hoveredItem === item.label ? 'rotate-180 text-brand-gold' : ''}`}
+                    >
+                      ▼
+                    </span>
                   )}
                 </a>
 
@@ -137,11 +137,7 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Utility / CTA */}
-          <div className="hidden md:flex items-center gap-8">
-            <button className="text-text-main hover:text-brand-gold transition-colors">
-              <Search className="w-5 h-5" strokeWidth={2.5} />
-            </button>
+          <div className="hidden md:flex items-center gap-6">
             <a
               href="tel:+18005550199"
               className="bg-brand-red text-white px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-red-700 transition-colors"
@@ -155,7 +151,9 @@ export const Header: React.FC = () => {
             className="md:hidden text-text-main z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            <span className="font-display text-lg tracking-[0.2em] uppercase">
+              {mobileMenuOpen ? 'Close' : 'Menu'}
+            </span>
           </button>
         </div>
 
@@ -182,7 +180,7 @@ export const Header: React.FC = () => {
                           onClick={(e) => handleNavClick(e, child.href)}
                           className="group flex items-center gap-3 text-text-main hover:text-brand-gold transition-colors font-sans font-medium text-lg"
                         >
-                          <ArrowRight className="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-brand-gold" />
+                          <span className="text-sm opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-brand-gold">→</span>
                           {child.label}
                         </a>
                       </li>
@@ -228,7 +226,7 @@ export const Header: React.FC = () => {
                     className="font-display text-2xl font-bold uppercase text-text-main tracking-tight flex justify-between items-center"
                   >
                     {item.label}
-                    {item.children && <ArrowRight className="w-5 h-5 text-brand-gold" />}
+                    {item.children && <span className="text-brand-gold">→</span>}
                   </a>
                   {item.children && (
                     <div className="mt-4 pl-4 flex flex-col gap-3">

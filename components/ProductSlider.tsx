@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { Product } from '../types';
-import { ArrowRight } from 'lucide-react';
 
 const PRODUCTS: Product[] = [
   {
@@ -57,12 +56,8 @@ export const ProductSlider: React.FC = () => {
 
         {/* Navigation Arrows (Visual only for this demo) */}
         <div className="hidden md:flex gap-4">
-          <button className="p-4 border border-gray-300 hover:border-black transition-colors rounded-full">
-            <ArrowRight className="w-5 h-5 rotate-180" />
-          </button>
-          <button className="p-4 border border-gray-300 hover:border-black transition-colors rounded-full">
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <button className="p-4 border border-gray-300 hover:border-black transition-colors rounded-full text-sm font-display">←</button>
+          <button className="p-4 border border-gray-300 hover:border-black transition-colors rounded-full text-sm font-display">→</button>
         </div>
       </div>
 
@@ -101,8 +96,8 @@ export const ProductSlider: React.FC = () => {
                     {product.specs[0].label}: <span className="text-text-main font-semibold">{product.specs[0].value}</span>
                   </p>
                 </div>
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-bg-panel group-hover:bg-text-main group-hover:text-white transition-colors duration-300">
-                  <ArrowRight className="w-4 h-4" />
+                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-bg-panel group-hover:bg-text-main group-hover:text-white transition-colors duration-300 font-display">
+                  →
                 </span>
               </div>
             </div>

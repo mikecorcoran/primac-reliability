@@ -1,25 +1,20 @@
 import React from 'react';
-import { Shield, Eye, Activity, Thermometer } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 
 const DOCTRINE_POINTS = [
     {
-        icon: Eye,
         title: "Vigilia",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor sapien vitae augue posuere porttitor."
     },
     {
-        icon: Thermometer,
         title: "Constantia",
         description: "Pellentesque et dui sit amet ipsum pulvinar commodo. Sed quis leo quis massa aliquet cursus sed id tortor."
     },
     {
-        icon: Activity,
         title: "Ordo in Motu",
         description: "Mauris malesuada lacus ac nisi fermentum, sit amet consequat lacus sodales. In feugiat nisl ac neque sodales dictum."
     },
     {
-        icon: Shield,
         title: "Praesidium",
         description: "Suspendisse potenti. Etiam lacinia, velit a dictum pretium, augue lacus finibus elit, id viverra lectus velit at arcu."
     }
@@ -40,9 +35,7 @@ export const GuardianDoctrine: React.FC = () => {
                     {DOCTRINE_POINTS.map((point, index) => (
                         <RevealSection key={point.title} delay={index * 0.1}>
                             <div className="bg-white p-8 h-full border-t-4 border-transparent hover:border-brand-gold transition-colors duration-300 group shadow-sm hover:shadow-md">
-                                <div className="mb-6">
-                                    <point.icon className="w-10 h-10 text-text-muted group-hover:text-brand-gold transition-colors duration-300" strokeWidth={1.5} />
-                                </div>
+                                <div className="mb-6 h-1 w-12 bg-brand-gold group-hover:w-16 transition-all duration-300" />
                                 <h3 className="font-display font-bold text-xl uppercase tracking-wide mb-4 text-text-main">{point.title}</h3>
                                 <p className="font-sans text-text-muted leading-relaxed text-sm">
                                     {point.description}

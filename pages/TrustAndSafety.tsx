@@ -1,6 +1,5 @@
 import React from 'react';
 import { RevealSection } from '../components/RevealSection';
-import { Shield, CheckCircle, FileText, AlertOctagon } from 'lucide-react';
 
 const SAFETY_STATS = [
     { label: "Casus Temporis Amissi", value: "0", sub: "Ab Anno 2018" },
@@ -26,7 +25,7 @@ export const TrustAndSafety: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10 w-full">
                     <RevealSection>
                         <div className="inline-flex items-center gap-2 mb-6 text-brand-red">
-                            <Shield className="w-5 h-5" />
+                            <span className="h-1 w-6 bg-brand-red inline-block" />
                             <span className="font-sans text-xs uppercase tracking-widest font-bold">Clypeus</span>
                         </div>
                         <h1 className="font-display font-black text-5xl md:text-7xl uppercase tracking-tighter mb-6 leading-[0.9]">
@@ -97,8 +96,7 @@ export const TrustAndSafety: React.FC = () => {
                                         <p className="font-sans text-sm text-text-muted">{cert.issuer}</p>
                                     </div>
                                     <div className="flex flex-col items-end">
-                                        <CheckCircle className="w-6 h-6 text-green-500 mb-2" />
-                                        <span className="font-sans text-xs text-green-600 uppercase font-bold bg-green-50 px-2 py-1 rounded-sm">{cert.status}</span>
+                                        <span className="font-sans text-xs text-green-700 uppercase font-bold bg-green-50 px-2 py-1 rounded-sm">{cert.status}</span>
                                     </div>
                                 </div>
                             </RevealSection>
@@ -107,9 +105,6 @@ export const TrustAndSafety: React.FC = () => {
 
                     <RevealSection delay={0.4}>
                         <div className="mt-16 bg-brand-red/5 border border-brand-red/20 p-8 md:p-12 rounded-sm flex flex-col md:flex-row items-start md:items-center gap-8">
-                            <div className="bg-brand-red/10 p-4 rounded-full">
-                                <AlertOctagon className="w-8 h-8 text-brand-red" />
-                            </div>
                             <div className="flex-1">
                                 <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main mb-2">Potestas Operis Sistere</h3>
                                 <p className="font-sans text-text-muted leading-relaxed">

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 
 const SECTORS = [
@@ -72,8 +71,7 @@ export const ServicePathway: React.FC = () => {
                                         Intentio: {sector.focus}
                                     </p>
                                     <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-brand-gold">
-                                        Vide Sectorem
-                                        <ArrowRight className="w-4 h-4" />
+                                        Vide Sectorem →
                                     </span>
                                 </div>
                             </div>

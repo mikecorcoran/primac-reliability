@@ -1,5 +1,4 @@
 import React from 'react';
-import { Play, ArrowRight } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 
 export const TechSpotlight: React.FC = () => {
@@ -27,12 +26,10 @@ export const TechSpotlight: React.FC = () => {
 
                             <div className="flex flex-col sm:flex-row gap-6">
                                 <button className="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.1em] hover:bg-brand-gold hover:text-white transition-all duration-300">
-                                    <Play className="w-4 h-4 fill-current" />
                                     Videa Exemplum
                                 </button>
                                 <a href="/services/motion-amplification" className="group flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/10 transition-all duration-300">
-                                    Disce Plura
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    Disce Plura →
                                 </a>
                             </div>
                         </RevealSection>
@@ -46,11 +43,11 @@ export const TechSpotlight: React.FC = () => {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="text-center">
                                         <div className="w-20 h-20 rounded-full border-2 border-brand-gold flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
-                                        <Play className="w-8 h-8 text-brand-gold ml-1" fill="currentColor" />
+                                          <span className="font-display text-sm uppercase tracking-[0.2em] text-brand-gold">Play</span>
+                                        </div>
+                                        <p className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">Exemplum Motion Amplification®</p>
                                     </div>
-                                    <p className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">Exemplum Motion Amplification®</p>
                                 </div>
-                            </div>
 
                                 {/* Scanline Effect */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-gold/5 to-transparent h-[10%] w-full animate-scan" />
