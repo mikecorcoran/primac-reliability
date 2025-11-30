@@ -37,21 +37,21 @@ export const Home: React.FC = () => {
             {/* Large Image Break */}
             <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
                 <div className="absolute inset-0">
-                    <img
-                        src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&q=80&w=2000"
-                        className="w-full h-full object-cover contrast-125"
-                        alt="Industrial Process"
-                    />
+                        <img
+                            src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&q=80&w=2000"
+                            className="w-full h-full object-cover contrast-125"
+                            alt="Processus Industrialis"
+                        />
                     <div className="absolute inset-0 bg-black/20" />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                     <RevealSection>
                         <div className="text-center bg-white/10 backdrop-blur-sm p-12 border border-white/20">
                             <h2 className="font-display font-black text-6xl md:text-8xl text-white uppercase tracking-tighter mb-8">
-                                Uncompromised
+                                Inconcussus
                             </h2>
                             <Button variant="solid" className="bg-white text-text-main hover:bg-brand-gold hover:text-white border-none">
-                                View Certifications
+                                Vide Certificationes
                             </Button>
                         </div>
                     </RevealSection>

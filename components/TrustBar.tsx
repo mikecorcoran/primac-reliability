@@ -2,28 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const CLIENTS = [
-    "SUNCOR ENERGY",
-    "TECK RESOURCES",
-    "CANADIAN NATURAL",
-    "NUTRIEN",
-    "BARRICK GOLD",
-    "RIO TINTO",
-    "TRANSCANADA",
-    "CENOVUS",
-    "WEST FRASER",
-    "SUNCOR ENERGY", // Repeat for seamless loop
-    "TECK RESOURCES",
-    "CANADIAN NATURAL",
-    "NUTRIEN",
-    "BARRICK GOLD",
+    "MAGNA VIRES",
+    "ALTIUS ORDO",
+    "CAELUM NATURA",
+    "NOVA AUXILIUM",
+    "AUREA SAXA",
+    "FLUMEN LAPIS",
+    "ITER NORD",
+    "FORTIS ARBOR",
+    "ORBIS SILVA",
+    "MAGNA VIRES", // Repeat for seamless loop
+    "ALTIUS ORDO",
+    "CAELUM NATURA",
+    "NOVA AUXILIUM",
+    "AUREA SAXA",
 ];
 
 export const TrustBar: React.FC = () => {
     return (
         <div className="bg-white border-b border-gray-100 py-8 overflow-hidden relative">
-            <div className="max-w-[1920px] mx-auto px-6 md:px-12 mb-6">
+                <div className="max-w-[1920px] mx-auto px-6 md:px-12 mb-6">
                 <h3 className="font-display font-bold text-xs uppercase tracking-[0.2em] text-text-muted text-center md:text-left">
-                    Trusted by Industry Giants
+                    Fides Inter Titanos
                 </h3>
             </div>
 

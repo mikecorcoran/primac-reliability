@@ -4,21 +4,21 @@ import { Activity, Search, Zap, BarChart3, CheckCircle2, ArrowRight } from 'luci
 
 const PROBLEMS = [
     {
-        title: "Unplanned Downtime",
-        description: "Equipment failure at 2:00 AM costs more than just repairs. It costs production targets, reputation, and safety risks.",
-        solution: "Predictive Intelligence",
+        title: "Tempus Inopinatum",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a urna sed neque auctor faucibus.",
+        solution: "Praevisio Sapiens",
         icon: Activity
     },
     {
-        title: "The 'Parts Cannon'",
-        description: "Replacing perfectly good bearings because of a 'hunch' or generic time-based schedule is a waste of capital.",
-        solution: "Precision Replacement",
+        title: "Tormentum Partium",
+        description: "Suspendisse potenti. Praesent vitae sem eu lectus volutpat pharetra sed at augue.",
+        solution: "Substitutio Exacta",
         icon: Search
     },
     {
-        title: "Catastrophic Failure",
-        description: "When a high-speed turbine fails, it's not just a mechanical issue. It's a potential safety incident.",
-        solution: "Zero-Harm Protection",
+        title: "Ruinosa Defectio",
+        description: "Quisque facilisis, urna non iaculis tristique, mi elit tincidunt leo, ut gravida velit metus in felis.",
+        solution: "Tutela Integra",
         icon: Zap
     }
 ];
@@ -26,35 +26,35 @@ const PROBLEMS = [
 const METHODOLOGY_STEPS = [
     {
         step: "01",
-        title: "Data Collection",
-        description: "We don't just take readings; we capture the machine's signature. Using tri-axial accelerometers and high-frequency sampling, we gather the raw data needed for forensic analysis.",
-        detail: "ISO 18436-2 Certified Analysts"
+        title: "Collectio Data",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis felis sagittis, volutpat metus a, egestas nisl.",
+        detail: "Analystae ISO 18436-2"
     },
     {
         step: "02",
-        title: "Spectral Analysis",
-        description: "We decode the waveform. By converting time-domain data into frequency spectra, we identify specific defect frequencies—bearing races, gear mesh, electrical faults, and looseness.",
-        detail: "FFT & Time Waveform Analysis"
+        title: "Analysis Spectralis",
+        description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+        detail: "FFT et Forma Temporis"
     },
     {
         step: "03",
-        title: "Root Cause Diagnosis",
-        description: "We don't just report the symptom; we find the disease. Is it misalignment? Imbalance? Resonance? We pinpoint the root cause so you can fix it permanently.",
-        detail: "Definitive Actionable Reporting"
+        title: "Causa Radicis",
+        description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer rhoncus erat id posuere lacinia.",
+        detail: "Relatio Practica"
     },
     {
         step: "04",
-        title: "Verification",
-        description: "After the repair, we return. We verify that the vibration levels have dropped to ISO standards, confirming the effectiveness of the maintenance action.",
-        detail: "Closed-Loop Reliability"
+        title: "Verificatio",
+        description: "Mauris pretium, dui vitae ultricies ultrices, ipsum augue bibendum lectus, at tempus ipsum libero id ipsum.",
+        detail: "Fides Recurrens"
     }
 ];
 
 const ARSENAL = [
-    { name: "CSI 2140", type: "Machinery Health Analyzer", role: "Advanced spectral data collection" },
-    { name: "RDI Iris M™", type: "Motion Amplification", role: "Visualizing structural looseness" },
-    { name: "SDT 340", type: "Ultrasound Detector", role: "Early bearing fault & leak detection" },
-    { name: "Fluke Ti480", type: "Infrared Camera", role: "Thermal anomaly detection" }
+    { name: "CSI 2140", type: "Salutis Machinarum", role: "Collectio data spectrali provecta" },
+    { name: "RDI Iris M™", type: "Amplificatio Motus", role: "Visualizare laxitatem structuralem" },
+    { name: "SDT 340", type: "Detector Ultrasound", role: "Praeventio vitii celeris et effluxus" },
+    { name: "Fluke Ti480", type: "Camera Infrared", role: "Detectio anomaliarum thermalium" }
 ];
 
 export const VibrationAnalysis: React.FC = () => {
@@ -68,16 +68,16 @@ export const VibrationAnalysis: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10 w-full">
                     <RevealSection>
                         <h1 className="font-display font-black text-5xl md:text-8xl uppercase tracking-tighter mb-6 leading-[0.9]">
-                            Forensic<br />
-                            Machine<br />
-                            Analysis.
+                            Analytica<br />
+                            Machinae<br />
+                            Forensis.
                         </h1>
                         <p className="font-sans text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-10">
-                            Decoding the mechanical DNA of your assets to predict failure months in advance. We don't guess. We know.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dui vitae mi dictum viverra vitae vel leo.
                         </p>
                         <div className="flex gap-4">
                             <button className="bg-brand-red text-white px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.2em] hover:bg-red-700 transition-colors">
-                                Schedule Analysis
+                                Agenda Analysin
                             </button>
                         </div>
                     </RevealSection>
@@ -89,12 +89,12 @@ export const VibrationAnalysis: React.FC = () => {
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                     <RevealSection>
                         <div className="mb-16 max-w-3xl">
-                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">The Challenge</h3>
+                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Provocatio</h3>
                             <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight mb-6">
-                                Vibration is the Heartbeat.
+                                Vibratio est Pulsus.
                             </h2>
                             <p className="font-sans text-lg text-text-muted leading-relaxed">
-                                Changes in rhythm indicate pathology. Most plants operate in a reactive state, waiting for the crash. We shift you to a proactive stance.
+                                Vestibulum eget arcu id ipsum ullamcorper rhoncus. Praesent finibus magna eu tortor gravida, id varius sapien varius.
                             </p>
                         </div>
                     </RevealSection>
@@ -108,7 +108,7 @@ export const VibrationAnalysis: React.FC = () => {
                                     <p className="font-sans text-sm text-text-muted mb-6">{item.description}</p>
                                     <div className="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
                                         <CheckCircle2 className="w-4 h-4" />
-                                        <span>Solution: {item.solution}</span>
+                                        <span>Solutio: {item.solution}</span>
                                     </div>
                                 </div>
                             </RevealSection>
@@ -124,13 +124,13 @@ export const VibrationAnalysis: React.FC = () => {
                         {/* Sticky Left Side */}
                         <div className="hidden lg:block relative">
                             <div className="sticky top-32">
-                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-gold mb-4">Methodology</h3>
+                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-gold mb-4">Methodologia</h3>
                                 <h2 className="font-display font-black text-5xl md:text-6xl uppercase tracking-tight mb-8 leading-none">
-                                    From Chaos<br />
-                                    To Order.
+                                    Ex Chao<br />
+                                    Ad Ordinem.
                                 </h2>
                                 <p className="font-sans text-gray-400 text-lg max-w-md">
-                                    Our process is rigorous, repeatable, and rooted in physics. We leave nothing to chance.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis sapien ut sem blandit sollicitudin.
                                 </p>
                             </div>
                         </div>
@@ -140,11 +140,11 @@ export const VibrationAnalysis: React.FC = () => {
                             {METHODOLOGY_STEPS.map((step, index) => (
                                 <RevealSection key={index}>
                                     <div className="border-t border-white/20 pt-8">
-                                        <span className="font-sans text-4xl text-brand-gold opacity-50 mb-4 block font-bold">{step.step}</span>
-                                        <h3 className="font-display font-black text-3xl uppercase tracking-tight mb-4">{step.title}</h3>
-                                        <p className="font-sans text-gray-400 text-lg leading-relaxed mb-6">
-                                            {step.description}
-                                        </p>
+                                            <span className="font-sans text-4xl text-brand-gold opacity-50 mb-4 block font-bold">{step.step}</span>
+                                            <h3 className="font-display font-black text-3xl uppercase tracking-tight mb-4">{step.title}</h3>
+                                            <p className="font-sans text-gray-400 text-lg leading-relaxed mb-6">
+                                                {step.description}
+                                            </p>
                                         <div className="inline-block bg-white/10 px-4 py-2 rounded-sm">
                                             <span className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">{step.detail}</span>
                                         </div>
@@ -162,12 +162,12 @@ export const VibrationAnalysis: React.FC = () => {
                     <RevealSection>
                         <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 pb-8">
                             <div>
-                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Technology Stack</h3>
-                                <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">The Arsenal</h2>
+                                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Ars Technologiae</h3>
+                                <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Arsenalium</h2>
                             </div>
                             <div className="hidden md:block">
                                 <p className="font-sans text-text-muted text-right max-w-md">
-                                    We deploy the most advanced diagnostic hardware in the world.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique ligula id libero suscipit, eget fermentum velit varius.
                                 </p>
                             </div>
                         </div>

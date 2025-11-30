@@ -5,23 +5,23 @@ import { RevealSection } from './RevealSection';
 const DOCTRINE_POINTS = [
     {
         icon: Eye,
-        title: "Vigilance",
-        description: "The Guardian never sleeps. 24/7/365 monitoring is not a feature; it is a character trait. We operate on the principle of constant watchfulness."
+        title: "Vigilia",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor sapien vitae augue posuere porttitor."
     },
     {
         icon: Thermometer,
-        title: "Stoicism",
-        description: "We thrive where others falter. From -40°C oil sands to subterranean potash mines, our technicians are built for the harshest environments on earth."
+        title: "Constantia",
+        description: "Pellentesque et dui sit amet ipsum pulvinar commodo. Sed quis leo quis massa aliquet cursus sed id tortor."
     },
     {
         icon: Activity,
-        title: "Precision in Chaos",
-        description: "In a world of entropy, we bring order. We measure in microns and analyze in frequencies, turning the chaos of vibration into actionable intelligence."
+        title: "Ordo in Motu",
+        description: "Mauris malesuada lacus ac nisi fermentum, sit amet consequat lacus sodales. In feugiat nisl ac neque sodales dictum."
     },
     {
         icon: Shield,
-        title: "Protection",
-        description: "Our ultimate goal is the preservation of asset life and human safety. Every diagnostic intervention is a protective act against catastrophic failure."
+        title: "Praesidium",
+        description: "Suspendisse potenti. Etiam lacinia, velit a dictum pretium, augue lacus finibus elit, id viverra lectus velit at arcu."
     }
 ];
 
@@ -31,8 +31,8 @@ export const GuardianDoctrine: React.FC = () => {
             <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                 <RevealSection>
                     <div className="mb-16">
-                        <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Our Philosophy</h3>
-                        <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">The Guardian Doctrine</h2>
+                        <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Nostra Philosophia</h3>
+                        <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Doctrina Custodis</h2>
                     </div>
                 </RevealSection>
 

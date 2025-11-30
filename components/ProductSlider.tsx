@@ -6,31 +6,31 @@ import { ArrowRight } from 'lucide-react';
 const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'T-800 Rotor',
-    category: 'Industrial',
+    name: 'Rotor T-800',
+    category: 'Industrialis',
     image: '/images/IMG_0442.JPEG',
-    specs: [{ label: 'RPM', value: '12000' }, { label: 'Torque', value: '450Nm' }]
+    specs: [{ label: 'Cursus', value: '12000 RPM' }, { label: 'Momentum', value: '450Nm' }]
   },
   {
     id: '2',
-    name: 'Aero Bearing X',
-    category: 'Precision',
+    name: 'Gestus Aero X',
+    category: 'Praecisio',
     image: '/images/IMG_0448.JPEG',
-    specs: [{ label: 'Grade', value: 'Aerospace' }, { label: 'Load', value: '50kN' }]
+    specs: [{ label: 'Gradus', value: 'Aerospace' }, { label: 'Onus', value: '50kN' }]
   },
   {
     id: '3',
-    name: 'Hydro Pump V2',
-    category: 'Hydraulics',
+    name: 'Pomp a Hydro V2',
+    category: 'Hydraulica',
     image: '/images/IMG_0451.JPEG',
-    specs: [{ label: 'Flow', value: '200L/m' }, { label: 'Pressure', value: '300bar' }]
+    specs: [{ label: 'Fluxus', value: '200L/m' }, { label: 'Pressio', value: '300bar' }]
   },
   {
     id: '4',
-    name: 'Servo Driver',
-    category: 'Electronics',
+    name: 'Moderator Servo',
+    category: 'Electronica',
     image: '/images/IMG_0453.JPEG',
-    specs: [{ label: 'Input', value: '24V' }, { label: 'Response', value: '2ms' }]
+    specs: [{ label: 'Initus', value: '24V' }, { label: 'Responsio', value: '2ms' }]
   },
 ];
 
@@ -49,9 +49,9 @@ export const ProductSlider: React.FC = () => {
     <div className="w-full overflow-hidden py-12 md:py-24 bg-bg-panel">
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 mb-12 flex justify-between items-end">
         <div>
-          <p className="font-display font-bold text-xs tracking-[0.2em] text-text-muted uppercase mb-4">Our Offering</p>
+          <p className="font-display font-bold text-xs tracking-[0.2em] text-text-muted uppercase mb-4">Nostra Oblatio</p>
           <h2 className="font-display font-black text-3xl md:text-5xl uppercase tracking-tight text-text-main">
-            Primac Components
+            Primac Componentia
           </h2>
         </div>
 
