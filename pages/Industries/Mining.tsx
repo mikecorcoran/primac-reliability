@@ -1,6 +1,5 @@
 import React from 'react';
 import { RevealSection } from '../../components/RevealSection';
-import { DollarSign, Clock, AlertTriangle, ArrowRight } from 'lucide-react';
 
 const PAIN_POINTS = [
     {
@@ -64,7 +63,7 @@ export const Mining: React.FC = () => {
                             <RevealSection key={index} delay={index * 0.1}>
                                 <div className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors duration-300 group">
                                     <div className="flex justify-between items-start mb-6">
-                                        <AlertTriangle className="w-8 h-8 text-brand-gold" />
+                                        <span className="h-1 w-10 bg-brand-gold block group-hover:w-12 transition-all duration-300" />
                                         <span className="font-sans text-xl text-brand-red font-bold">{point.cost}</span>
                                     </div>
                                 <h3 className="font-display font-bold text-2xl uppercase tracking-wide mb-4">{point.title}</h3>
@@ -82,9 +81,6 @@ export const Mining: React.FC = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                     <div className="bg-bg-panel border-l-8 border-brand-gold p-8 md:p-16 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 p-8 opacity-10">
-                            <DollarSign className="w-64 h-64 text-text-main" />
-                        </div>
 
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
@@ -100,9 +96,8 @@ export const Mining: React.FC = () => {
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus magna et risus faucibus, eget suscipit leo sagittis.
                                     Primac ordinavit substitutionem destinatum mutatione vigiliae, vitans discrimen quod productionem omnem intermisisset.
                                 </p>
-                                <button className="inline-flex items-center gap-3 font-display font-bold text-sm uppercase tracking-[0.2em] text-text-main hover:text-brand-gold transition-colors">
-                                    Lege Causam Totam
-                                    <ArrowRight className="w-5 h-5" />
+                                <button className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-[0.2em] text-text-main hover:text-brand-gold transition-colors">
+                                    Lege Causam Totam →
                                 </button>
                             </div>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -52,10 +51,9 @@ export const Footer: React.FC = () => {
             </p>
             <a
               href="tel:+18005550199"
-              className="inline-flex items-center justify-center w-full md:w-auto gap-2 bg-brand-red text-white px-6 py-4 md:py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-[#4a7010] transition-colors"
+              className="inline-flex items-center justify-center w-full md:w-auto bg-brand-red text-white px-6 py-4 md:py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-[#4a7010] transition-colors"
             >
               Continge 24/7 Praesidium
-              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 

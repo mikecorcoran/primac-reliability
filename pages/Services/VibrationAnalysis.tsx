@@ -1,25 +1,21 @@
 import React from 'react';
 import { RevealSection } from '../../components/RevealSection';
-import { Activity, Search, Zap, BarChart3, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const PROBLEMS = [
     {
         title: "Tempus Inopinatum",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a urna sed neque auctor faucibus.",
-        solution: "Praevisio Sapiens",
-        icon: Activity
+        solution: "Praevisio Sapiens"
     },
     {
         title: "Tormentum Partium",
         description: "Suspendisse potenti. Praesent vitae sem eu lectus volutpat pharetra sed at augue.",
-        solution: "Substitutio Exacta",
-        icon: Search
+        solution: "Substitutio Exacta"
     },
     {
         title: "Ruinosa Defectio",
         description: "Quisque facilisis, urna non iaculis tristique, mi elit tincidunt leo, ut gravida velit metus in felis.",
-        solution: "Tutela Integra",
-        icon: Zap
+        solution: "Tutela Integra"
     }
 ];
 
@@ -103,11 +99,10 @@ export const VibrationAnalysis: React.FC = () => {
                         {PROBLEMS.map((item, index) => (
                             <RevealSection key={index} delay={index * 0.1}>
                                 <div className="bg-bg-panel p-8 h-full border-l-4 border-brand-gold">
-                                    <item.icon className="w-8 h-8 text-text-main mb-6" />
                                     <h3 className="font-display font-bold text-xl uppercase tracking-wide mb-3">{item.title}</h3>
                                     <p className="font-sans text-sm text-text-muted mb-6">{item.description}</p>
-                                    <div className="flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
-                                        <CheckCircle2 className="w-4 h-4" />
+                                    <div className="inline-flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
+                                        <span className="h-1 w-6 bg-brand-gold inline-block align-middle" />
                                         <span>Solutio: {item.solution}</span>
                                     </div>
                                 </div>
