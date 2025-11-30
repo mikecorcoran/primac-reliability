@@ -4,27 +4,27 @@ import { NavItem } from '../types';
 
 const NAV_ITEMS: NavItem[] = [
   {
-    label: 'Services',
+    label: 'Serinova',
     href: '/services/vibration-analysis',
     children: [
-      { label: 'Vibration Analysis', href: '/services/vibration-analysis' },
-      { label: 'Laser Alignment', href: '#' },
-      { label: 'Dynamic Balancing', href: '#' },
-      { label: 'Ultrasound Testing', href: '#' },
+      { label: 'Stativa Vibronis', href: '/services/vibration-analysis' },
+      { label: 'Lazum Dorectis', href: '#' },
+      { label: 'Dynara Libretio', href: '#' },
+      { label: 'Ultraxa Probantis', href: '#' },
     ]
   },
   {
-    label: 'Industries',
+    label: 'Induriana',
     href: '/industries/mining',
     children: [
-      { label: 'Mining & Extraction', href: '/industries/mining' },
-      { label: 'Oil & Gas', href: '#' },
-      { label: 'Pulp & Paper', href: '#' },
-      { label: 'Power Generation', href: '#' },
+      { label: 'Fessum & Exolatio', href: '/industries/mining' },
+      { label: 'Olefa & Gax', href: '#' },
+      { label: 'Lirna & Cherta', href: '#' },
+      { label: 'Potrena Generatia', href: '#' },
     ]
   },
-  { label: 'Trust & Safety', href: '/trust-and-safety' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Virel et Cauta', href: '/trust-and-safety' },
+  { label: 'Condivio', href: '#contact' }
 ];
 
 export const Header: React.FC = () => {
