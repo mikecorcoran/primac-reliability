@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { RevealSection } from './RevealSection';
 
 const SECTORS = [
@@ -56,10 +57,13 @@ export const ServicePathway: React.FC = () => {
                             key={sector.title}
                             className="min-w-[300px] md:min-w-[400px] snap-start group relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer"
                         >
-                            <img
+                            <Image
                                 src={sector.image}
                                 alt={sector.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                sizes="(min-width: 1024px) 400px, 80vw"
+                                priority={index === 0}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
 
