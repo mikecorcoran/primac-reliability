@@ -99,3 +99,12 @@ The agent is empowered to use the following modern stack to achieve the required
 * **Do** ensure text contrast ratios are high (Black on White).
 * **Do not** use soft shadows or rounded corners (radius > 4px). Keep it sharp.
 * **Do** prioritize image quality. Images should feel "Technical" and "Industrial".
+
+---
+
+## 8. Built-In AI Coding Agent (ai-sandbox)
+* **Scope awareness:** The embedded AI editor (floating chat) only edits TSX pages (app/**/page.tsx), components under components/**, and small content files. It avoids layout files, config, lockfiles, and CI/Vercel settings.
+* **Multi-file commits:** When multiple text files need changes (e.g., coordinated UI tweaks across sections), prefer batching with the `update_files` tool so the agent pushes a single commit instead of one per file.
+* **Text-only rule:** Keep edits in UTF-8 text. Do not generate binaries, images, or bundled/minified artifacts; GitHub diffs should remain readable.
+* **Context retention:** The chat stores its history in session storage so conversations persist across navigation during a browsing session. Share concise prompts to keep the agent on task.
+* **Diagnostics:** Server responses can include diagnostics payloads when GitHub/OpenAI fail—surface these in logs if troubleshooting deployment issues.
