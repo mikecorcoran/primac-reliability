@@ -25,8 +25,8 @@ The agent is empowered to use the following modern stack to achieve the required
 ### A. Color Palette (The "Clinical Precision" Theme)
 - **Primary**: `#111111` (Rich Black)
 - **Secondary**: `#f4f4f4` (Off-White/Panel Grey)
-- **Accent**: `#cfa04a` (Industrial Gold)
-- **Action**: `#5E8E15` (Deep Sage Green) - *Updated from Red*
+- **Accent**: `#6FA137` (Guardian Green) — apply consistently across all accent states.
+- **Action**: `#6FA137` (Guardian Green) — same tone as Accent for unified status cues.
 - **Text**: `#111111` (Main), `#555555` (Muted)
 
 ### B. Typography

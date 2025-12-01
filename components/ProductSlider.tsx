@@ -92,7 +92,7 @@ export const ProductSlider: React.FC = () => {
                   sizes="(min-width: 768px) 420px, 300px"
                 />
                 {/* Accent Line on Hover */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
 
               <div className="flex justify-between items-center">

@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
                 placeholder="INSCRIPTIO ELECTRONICA"
                 className="bg-transparent w-full outline-none text-white font-sans placeholder-white/30 text-sm"
               />
-              <button type="button" className="text-white font-display font-bold text-xs uppercase tracking-widest hover:text-brand-gold transition-colors text-left sm:text-right">
+              <button type="button" className="text-white font-display font-bold text-xs uppercase tracking-widest hover:text-brand-accent transition-colors text-left sm:text-right">
                 Subscribere
               </button>
             </form>
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
             </p>
             <a
               href="tel:+18005550199"
-              className="inline-flex items-center justify-center w-full md:w-auto bg-brand-red text-white px-6 py-4 md:py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-[#4a7010] transition-colors"
+              className="inline-flex items-center justify-center w-full md:w-auto bg-brand-accent text-white px-6 py-4 md:py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-brand-accentDark transition-colors"
             >
               Continge 24/7 Praesidium
             </a>

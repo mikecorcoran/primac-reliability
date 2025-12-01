@@ -20,8 +20,8 @@ const config: Config = {
           light: "#f4f4f4",
         },
         brand: {
-          gold: "#cfa04a",
-          red: "#5E8E15",
+          accent: "#6fa137",
+          accentDark: "#557c28",
         },
       },
       fontFamily: {

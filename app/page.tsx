@@ -50,7 +50,7 @@ export default function HomePage() {
               <h2 className="font-display font-black text-6xl md:text-8xl text-white uppercase tracking-tighter mb-8">
                 Inconcussus
               </h2>
-              <Button variant="solid" className="bg-white text-text-main hover:bg-brand-gold hover:text-white border-none">
+              <Button variant="solid" className="bg-white text-text-main hover:bg-brand-accent hover:text-white border-none">
                 Vide Certificationes
               </Button>
             </div>

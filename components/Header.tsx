@@ -119,12 +119,12 @@ export const Header: React.FC = () => {
                 <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="flex items-center gap-1 font-display text-xs font-bold uppercase tracking-[0.1em] text-text-main hover:text-brand-gold transition-colors py-2"
+                  className="flex items-center gap-1 font-display text-xs font-bold uppercase tracking-[0.1em] text-text-main hover:text-brand-accent transition-colors py-2"
                 >
                   {item.label}
                   {item.children && (
                     <span
-                      className={`text-[10px] transition-transform duration-300 ${hoveredItem === item.label ? 'rotate-180 text-brand-gold' : ''}`}
+                      className={`text-[10px] transition-transform duration-300 ${hoveredItem === item.label ? 'rotate-180 text-brand-accent' : ''}`}
                     >
                       ▼
                     </span>
@@ -132,7 +132,7 @@ export const Header: React.FC = () => {
                 </Link>
 
                 {/* Hover Indicator Line */}
-                <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-brand-gold transform origin-left transition-transform duration-300 ${hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
+                <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-brand-accent transform origin-left transition-transform duration-300 ${hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
                   }`} />
               </div>
             ))}
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center gap-6">
             <a
               href="tel:+18005550199"
-              className="bg-brand-red text-white px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-red-700 transition-colors"
+              className="bg-brand-accent text-white px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.1em] hover:bg-brand-accentDark transition-colors"
             >
               24/7 Praesidium
             </a>
@@ -179,9 +179,9 @@ export const Header: React.FC = () => {
                         <Link
                           href={child.href}
                           onClick={(e) => handleNavClick(e, child.href)}
-                          className="group flex items-center gap-3 text-text-main hover:text-brand-gold transition-colors font-sans font-medium text-lg"
+                          className="group flex items-center gap-3 text-text-main hover:text-brand-accent transition-colors font-sans font-medium text-lg"
                         >
-                          <span className="text-sm opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-brand-gold">→</span>
+                          <span className="text-sm opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-brand-accent">→</span>
                           {child.label}
                         </Link>
                       </li>
@@ -200,7 +200,7 @@ export const Header: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                     <div className="absolute bottom-8 left-8 bg-white p-6 shadow-lg max-w-xs">
-                      <p className="font-display text-xs text-brand-gold uppercase tracking-widest mb-2">Ministerium Insigne</p>
+                      <p className="font-display text-xs text-brand-accent uppercase tracking-widest mb-2">Ministerium Insigne</p>
                       <p className="font-display text-xl font-bold text-text-main uppercase tracking-tight">Analytica Vibrationum</p>
                     </div>
                   </div>
@@ -230,7 +230,7 @@ export const Header: React.FC = () => {
                     className="font-display text-2xl font-bold uppercase text-text-main tracking-tight flex justify-between items-center"
                   >
                     {item.label}
-                    {item.children && <span className="text-brand-gold">→</span>}
+                    {item.children && <span className="text-brand-accent">→</span>}
                   </Link>
                   {item.children && (
                     <div className="mt-4 pl-4 flex flex-col gap-3">

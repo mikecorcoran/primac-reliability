@@ -77,7 +77,7 @@ export default function VibrationAnalysisPage() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dui vitae mi dictum viverra vitae vel leo.
             </p>
             <div className="flex gap-4">
-              <button className="bg-brand-red text-white px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.2em] hover:bg-red-700 transition-colors">
+              <button className="bg-brand-accent text-white px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.2em] hover:bg-brand-accentDark transition-colors">
                 Agenda Analysin
               </button>
             </div>
@@ -102,11 +102,11 @@ export default function VibrationAnalysisPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {PROBLEMS.map((item, index) => (
               <RevealSection key={item.title} delay={index * 0.1}>
-                <div className="bg-bg-panel p-8 h-full border-l-4 border-brand-gold">
+                <div className="bg-bg-panel p-8 h-full border-l-4 border-brand-accent">
                   <h3 className="font-display font-bold text-xl uppercase tracking-wide mb-3">{item.title}</h3>
                   <p className="font-sans text-sm text-text-muted mb-6">{item.description}</p>
-                  <div className="inline-flex items-center gap-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
-                    <span className="h-1 w-6 bg-brand-gold inline-block align-middle" />
+                  <div className="inline-flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-wider">
+                    <span className="h-1 w-6 bg-brand-accent inline-block align-middle" />
                     <span>Solutio: {item.solution}</span>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function VibrationAnalysisPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="hidden lg:block relative">
               <div className="sticky top-32">
-                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-gold mb-4">Methodologia</h3>
+                <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-accent mb-4">Methodologia</h3>
                 <h2 className="font-display font-black text-5xl md:text-6xl uppercase tracking-tight mb-8 leading-none">
                   Ex Chao
                   <br />
@@ -137,11 +137,11 @@ export default function VibrationAnalysisPage() {
               {METHODOLOGY_STEPS.map((step) => (
                 <RevealSection key={step.step}>
                   <div className="border-t border-white/20 pt-8">
-                    <span className="font-sans text-4xl text-brand-gold opacity-50 mb-4 block font-bold">{step.step}</span>
+                    <span className="font-sans text-4xl text-brand-accent opacity-50 mb-4 block font-bold">{step.step}</span>
                     <h3 className="font-display font-black text-3xl uppercase tracking-tight mb-4">{step.title}</h3>
                     <p className="font-sans text-gray-400 text-lg leading-relaxed mb-6">{step.description}</p>
                     <div className="inline-block bg-white/10 px-4 py-2 rounded-sm">
-                      <span className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">{step.detail}</span>
+                      <span className="font-sans text-xs text-brand-accent uppercase tracking-widest font-bold">{step.detail}</span>
                     </div>
                   </div>
                 </RevealSection>
@@ -171,9 +171,9 @@ export default function VibrationAnalysisPage() {
             {ARSENAL.map((gear, index) => (
               <RevealSection key={gear.name} delay={index * 0.1}>
                 <div className="bg-white p-8 hover:shadow-lg transition-shadow duration-300 group">
-                  <div className="h-1 w-12 bg-gray-200 group-hover:bg-brand-gold transition-colors duration-300 mb-6" />
+                  <div className="h-1 w-12 bg-gray-200 group-hover:bg-brand-accent transition-colors duration-300 mb-6" />
                   <h4 className="font-display font-black text-xl uppercase tracking-tight mb-2">{gear.name}</h4>
-                  <p className="font-sans text-xs text-brand-gold uppercase tracking-widest mb-4 font-bold">{gear.type}</p>
+                  <p className="font-sans text-xs text-brand-accent uppercase tracking-widest mb-4 font-bold">{gear.type}</p>
                   <p className="font-sans text-sm text-text-muted">{gear.role}</p>
                 </div>
               </RevealSection>

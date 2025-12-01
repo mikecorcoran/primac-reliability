@@ -135,10 +135,14 @@ Pattern Name
 	Cinematic Micro-Interactions
 	Subtle animations that trigger on hover or focus, mimicking machinery mechanics (e.g., sliding, locking).
 	Navigation: Menu items slide in with the weight and precision of a hydraulic piston, not a default fade. Buttons have a "tactile" click state. This reinforces the "mechanical" and "solid" brand attributes.
-	The 'Red-to-Green' Visual Arc
-	Using color psychology and gradients to denote status change as the user moves through content.
-	Diagnostics Section: As the user scrolls down a problem description (Entropy), the background gradient shifts from Alert Red/Orange (Alarm state) to Reliable Green/Blue (Normal state), visually reinforcing Primac's role in restoring order.
-	________________
+        The 'Red-to-Green' Visual Arc
+        Using color psychology and gradients to denote status change as the user moves through content.
+        Diagnostics Section: As the user scrolls down a problem description (Entropy), the background gradient shifts from Alert Red/Orange (Alarm state) to Reliable Green/Blue (Normal state), visually reinforcing Primac's role in restoring order.
+
+Color System Directive (2024 Update)
+        All interface accents, CTAs, and highlight borders now use Guardian Green (#6FA137) with a deeper hover state (#557C28). Retire any gold/orange callouts; every card and pathway should share this unified green signal for status and action clarity.
+        Iconography and data badges must also inherit this Guardian Green accent so that charts, KPIs, and inline status flags remain chromatically consistent with buttons and card trims.
+        ________________
 
 
 B2B Optimized Sitemap 2026
