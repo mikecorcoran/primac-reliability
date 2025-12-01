@@ -7,6 +7,21 @@ type ChatMessage = {
   content: string;
 };
 
+type Diagnostics = {
+  timestamp: string;
+  errorType: string;
+  message: string;
+  stack?: string;
+};
+
+type AiEditorResponse = {
+  messages?: ChatMessage[];
+  diagnostics?: Diagnostics;
+};
+
+const formatDiagnostics = (diagnostics: Diagnostics) =>
+  `Diagnostics:\n${JSON.stringify(diagnostics, null, 2)}`;
+
 export function AiEditorChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -46,22 +61,42 @@ export function AiEditorChat() {
         body: JSON.stringify({ messages: nextMessages }),
       });
 
+      const data: AiEditorResponse = await response.json();
+      const assistantMessages: ChatMessage[] = data?.messages ?? [];
+      const diagnosticsMessage = data?.diagnostics
+        ? [{ role: "assistant", content: formatDiagnostics(data.diagnostics) }]
+        : [];
+
+      const combinedAssistantMessages = [...assistantMessages, ...diagnosticsMessage];
+
       if (!response.ok) {
-        throw new Error("Request failed");
+        const fallback =
+          combinedAssistantMessages.length === 0
+            ? [
+                {
+                  role: "assistant",
+                  content:
+                    "Something went wrong while contacting the AI editor. Please try again soon.",
+                },
+              ]
+            : [];
+
+        setMessages((prev) => [...prev, ...combinedAssistantMessages, ...fallback]);
+        return;
       }
 
-      const data = await response.json();
-      const assistantMessages: ChatMessage[] = data?.messages ?? [];
-      if (assistantMessages.length) {
-        setMessages((prev) => [...prev, ...assistantMessages]);
+      if (combinedAssistantMessages.length) {
+        setMessages((prev) => [...prev, ...combinedAssistantMessages]);
       }
     } catch (error) {
+      const errorDetails = error instanceof Error ? error.message : String(error);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content:
-            "Something went wrong while contacting the AI editor. Please try again soon.",
+            "Something went wrong while contacting the AI editor. Please try again soon. Diagnostic details:" +
+            ` ${errorDetails}`,
         },
       ]);
       console.error("AI editor request failed", error);
@@ -104,6 +139,7 @@ export function AiEditorChat() {
                   className={`border border-gray-200 px-3 py-2 text-sm leading-relaxed ${
                     message.role === "assistant" ? "bg-gray-50" : "bg-white"
                   }`}
+                  style={{ whiteSpace: "pre-wrap" }}
                 >
                   {message.content}
                 </div>

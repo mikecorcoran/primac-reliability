@@ -63,6 +63,19 @@ async function handleToolCall(name: string, args: Record<string, any>) {
   }
 }
 
+function buildDiagnostics(error: unknown) {
+  const errorType = error instanceof Error ? error.name : typeof error;
+  const message = error instanceof Error ? error.message : String(error);
+  const stackLines = error instanceof Error && error.stack ? error.stack.split("\n").slice(0, 5) : undefined;
+
+  return {
+    timestamp: new Date().toISOString(),
+    errorType,
+    message,
+    stack: stackLines?.join("\n"),
+  };
+}
+
 export async function POST(request: NextRequest) {
   try {
     if (!process.env.OPENAI_API_KEY) {
@@ -149,15 +162,20 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ messages: [{ role: "assistant", content: finalContent }] });
   } catch (error) {
+    const diagnostics = buildDiagnostics(error);
     console.error("/api/ai-editor error", error);
-    return NextResponse.json({
-      messages: [
-        {
-          role: "assistant",
-          content:
-            "I hit a problem while contacting OpenAI or GitHub. Please retry in a moment.",
-        },
-      ],
-    });
+    return NextResponse.json(
+      {
+        messages: [
+          {
+            role: "assistant",
+            content:
+              "I hit a problem while contacting OpenAI or GitHub. Please retry in a moment. Diagnostic details are included below to help investigate.",
+          },
+        ],
+        diagnostics,
+      },
+      { status: 500 },
+    );
   }
 }
