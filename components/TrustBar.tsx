@@ -45,7 +45,7 @@ export const TrustBar: React.FC = () => {
                     {CLIENTS.map((client, index) => (
                         <span
                             key={index}
-                            className="font-display font-black text-2xl md:text-3xl text-gray-200 uppercase tracking-tighter hover:text-emerald-700 transition-colors cursor-default select-none"
+                            className="font-display font-black text-2xl md:text-3xl text-gray-200 uppercase tracking-tighter hover:text-emerald-500 transition-colors cursor-default select-none"
                         >
                             {client}
                         </span>
@@ -68,7 +68,7 @@ export const TrustBar: React.FC = () => {
                     {CLIENTS.map((client, index) => (
                         <span
                             key={`dup-${index}`}
-                            className="font-display font-black text-2xl md:text-3xl text-gray-200 uppercase tracking-tighter hover:text-emerald-700 transition-colors cursor-default select-none"
+                            className="font-display font-black text-2xl md:text-3xl text-gray-200 uppercase tracking-tighter hover:text-emerald-500 transition-colors cursor-default select-none"
                         >
                             {client}
                         </span>
