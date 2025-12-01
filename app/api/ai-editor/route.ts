@@ -114,8 +114,13 @@ export async function POST(request: NextRequest) {
     }
 
     const sanitizedMessages = incomingMessages
-      .filter((message: any) => message && typeof message.content === "string" && typeof message.role === "string")
-      .map((message: any) => ({ role: message.role, content: message.content }));
+      .filter(
+        (message: any): message is { role: "user" | "assistant"; content: string } =>
+          message &&
+          typeof message.content === "string" &&
+          (message.role === "user" || message.role === "assistant"),
+      )
+      .map((message) => ({ role: message.role, content: message.content }));
 
     const conversation: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
       { role: "system", content: systemMessage },

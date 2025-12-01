@@ -19,6 +19,23 @@ type AiEditorResponse = {
   diagnostics?: Diagnostics;
 };
 
+const parseChatMessages = (rawMessages: unknown): ChatMessage[] => {
+  if (!Array.isArray(rawMessages)) return [];
+
+  return rawMessages
+    .filter(
+      (message): message is ChatMessage =>
+        !!message &&
+        (message as ChatMessage).content !== undefined &&
+        typeof (message as ChatMessage).content === "string" &&
+        ((message as ChatMessage).role === "user" || (message as ChatMessage).role === "assistant"),
+    )
+    .map((message) => ({
+      role: message.role,
+      content: message.content,
+    }));
+};
+
 const formatDiagnostics = (diagnostics: Diagnostics) =>
   `Diagnostics:\n${JSON.stringify(diagnostics, null, 2)}`;
 
@@ -62,15 +79,18 @@ export function AiEditorChat() {
       });
 
       const data: AiEditorResponse = await response.json();
-      const assistantMessages: ChatMessage[] = data?.messages ?? [];
-      const diagnosticsMessage = data?.diagnostics
+      const assistantMessages = parseChatMessages(data?.messages);
+      const diagnosticsMessage: ChatMessage[] = data?.diagnostics
         ? [{ role: "assistant", content: formatDiagnostics(data.diagnostics) }]
         : [];
 
-      const combinedAssistantMessages = [...assistantMessages, ...diagnosticsMessage];
+      const combinedAssistantMessages: ChatMessage[] = [
+        ...assistantMessages,
+        ...diagnosticsMessage,
+      ];
 
       if (!response.ok) {
-        const fallback =
+        const fallback: ChatMessage[] =
           combinedAssistantMessages.length === 0
             ? [
                 {
