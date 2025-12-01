@@ -42,6 +42,7 @@ const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
 const systemMessage = `You are an AI editor for a Next.js + TypeScript site using the App Router.
 - Only edit TSX page files (app/**/page.tsx), TSX components under components/**, or small content/config files.
 - Do NOT edit app/layout.tsx, package.json, lockfiles, next.config.*, tsconfig.json, env files, CI configs, or Vercel config.
+- You may edit multiple eligible files when needed (for example, consistent color updates across pages), but keep the scope as small as possible.
 - Use get_file before editing anything.
 - Keep JSX/TypeScript valid and preserve imports/exports and component signatures.
 - Make minimal changes that satisfy the request.
@@ -61,6 +62,19 @@ async function handleToolCall(name: string, args: Record<string, any>) {
     default:
       throw new Error(`Unknown tool: ${name}`);
   }
+}
+
+function buildDiagnostics(error: unknown) {
+  const errorType = error instanceof Error ? error.name : typeof error;
+  const message = error instanceof Error ? error.message : String(error);
+  const stackLines = error instanceof Error && error.stack ? error.stack.split("\n").slice(0, 5) : undefined;
+
+  return {
+    timestamp: new Date().toISOString(),
+    errorType,
+    message,
+    stack: stackLines?.join("\n"),
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -100,8 +114,13 @@ export async function POST(request: NextRequest) {
     }
 
     const sanitizedMessages = incomingMessages
-      .filter((message: any) => message && typeof message.content === "string" && typeof message.role === "string")
-      .map((message: any) => ({ role: message.role, content: message.content }));
+      .filter(
+        (message: any): message is { role: "user" | "assistant"; content: string } =>
+          message &&
+          typeof message.content === "string" &&
+          (message.role === "user" || message.role === "assistant"),
+      )
+      .map((message) => ({ role: message.role, content: message.content }));
 
     const conversation: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
       { role: "system", content: systemMessage },
@@ -149,15 +168,20 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ messages: [{ role: "assistant", content: finalContent }] });
   } catch (error) {
+    const diagnostics = buildDiagnostics(error);
     console.error("/api/ai-editor error", error);
-    return NextResponse.json({
-      messages: [
-        {
-          role: "assistant",
-          content:
-            "I hit a problem while contacting OpenAI or GitHub. Please retry in a moment.",
-        },
-      ],
-    });
+    return NextResponse.json(
+      {
+        messages: [
+          {
+            role: "assistant",
+            content:
+              "I hit a problem while contacting OpenAI or GitHub. Please retry in a moment. Diagnostic details are included below to help investigate.",
+          },
+        ],
+        diagnostics,
+      },
+      { status: 500 },
+    );
   }
 }

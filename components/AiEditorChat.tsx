@@ -7,6 +7,38 @@ type ChatMessage = {
   content: string;
 };
 
+type Diagnostics = {
+  timestamp: string;
+  errorType: string;
+  message: string;
+  stack?: string;
+};
+
+type AiEditorResponse = {
+  messages?: ChatMessage[];
+  diagnostics?: Diagnostics;
+};
+
+const parseChatMessages = (rawMessages: unknown): ChatMessage[] => {
+  if (!Array.isArray(rawMessages)) return [];
+
+  return rawMessages
+    .filter(
+      (message): message is ChatMessage =>
+        !!message &&
+        (message as ChatMessage).content !== undefined &&
+        typeof (message as ChatMessage).content === "string" &&
+        ((message as ChatMessage).role === "user" || (message as ChatMessage).role === "assistant"),
+    )
+    .map((message) => ({
+      role: message.role,
+      content: message.content,
+    }));
+};
+
+const formatDiagnostics = (diagnostics: Diagnostics) =>
+  `Diagnostics:\n${JSON.stringify(diagnostics, null, 2)}`;
+
 export function AiEditorChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -46,22 +78,45 @@ export function AiEditorChat() {
         body: JSON.stringify({ messages: nextMessages }),
       });
 
+      const data: AiEditorResponse = await response.json();
+      const assistantMessages = parseChatMessages(data?.messages);
+      const diagnosticsMessage: ChatMessage[] = data?.diagnostics
+        ? [{ role: "assistant", content: formatDiagnostics(data.diagnostics) }]
+        : [];
+
+      const combinedAssistantMessages: ChatMessage[] = [
+        ...assistantMessages,
+        ...diagnosticsMessage,
+      ];
+
       if (!response.ok) {
-        throw new Error("Request failed");
+        const fallback: ChatMessage[] =
+          combinedAssistantMessages.length === 0
+            ? [
+                {
+                  role: "assistant",
+                  content:
+                    "Something went wrong while contacting the AI editor. Please try again soon.",
+                },
+              ]
+            : [];
+
+        setMessages((prev) => [...prev, ...combinedAssistantMessages, ...fallback]);
+        return;
       }
 
-      const data = await response.json();
-      const assistantMessages: ChatMessage[] = data?.messages ?? [];
-      if (assistantMessages.length) {
-        setMessages((prev) => [...prev, ...assistantMessages]);
+      if (combinedAssistantMessages.length) {
+        setMessages((prev) => [...prev, ...combinedAssistantMessages]);
       }
     } catch (error) {
+      const errorDetails = error instanceof Error ? error.message : String(error);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content:
-            "Something went wrong while contacting the AI editor. Please try again soon.",
+            "Something went wrong while contacting the AI editor. Please try again soon. Diagnostic details:" +
+            ` ${errorDetails}`,
         },
       ]);
       console.error("AI editor request failed", error);
@@ -96,6 +151,11 @@ export function AiEditorChat() {
             <span className="text-[10px] text-gray-500">Powered by ai-sandbox</span>
           </div>
 
+          <div className="px-4 py-3 border-b border-gray-200 text-[11px] leading-relaxed text-gray-700 bg-white">
+            I can edit TSX pages, components, and small content files. Multi-page updates (like a color change across sections)
+            are okay, but I avoid config files or sweeping platform changes.
+          </div>
+
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2" style={{ scrollbarWidth: "thin" }}>
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`} className="space-y-1">
@@ -104,6 +164,7 @@ export function AiEditorChat() {
                   className={`border border-gray-200 px-3 py-2 text-sm leading-relaxed ${
                     message.role === "assistant" ? "bg-gray-50" : "bg-white"
                   }`}
+                  style={{ whiteSpace: "pre-wrap" }}
                 >
                   {message.content}
                 </div>
