@@ -13,7 +13,7 @@ export const TechSpotlight: React.FC = () => {
                     {/* Content */}
                     <div className="lg:col-span-5">
                         <RevealSection>
-                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-gold mb-6">Praeclara Diagnostica</h3>
+                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-accent mb-6">Praeclara Diagnostica</h3>
                             <h2 className="font-display font-black text-5xl md:text-6xl uppercase tracking-tight mb-8 leading-[0.9]">
                                 Vide<br />
                                 Invisibilia.
@@ -25,7 +25,7 @@ export const TechSpotlight: React.FC = () => {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-6">
-                                <button className="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.1em] hover:bg-brand-gold hover:text-white transition-all duration-300">
+                                <button className="group flex items-center justify-center gap-3 bg-white text-black px-8 py-4 font-display font-bold text-sm uppercase tracking-[0.1em] hover:bg-brand-accent hover:text-white transition-all duration-300">
                                     Videa Exemplum
                                 </button>
                                 <a href="/services/motion-amplification" className="group flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white font-display font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/10 transition-all duration-300">
@@ -42,19 +42,19 @@ export const TechSpotlight: React.FC = () => {
                                 {/* Placeholder for RDI Video */}
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="text-center">
-                                        <div className="w-20 h-20 rounded-full border-2 border-brand-gold flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
-                                          <span className="font-display text-sm uppercase tracking-[0.2em] text-brand-gold">Play</span>
+                                        <div className="w-20 h-20 rounded-full border-2 border-brand-accent flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
+                                          <span className="font-display text-sm uppercase tracking-[0.2em] text-brand-accent">Play</span>
                                         </div>
-                                        <p className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">Exemplum Motion Amplification®</p>
+                                        <p className="font-sans text-xs text-brand-accent uppercase tracking-widest font-bold">Exemplum Motion Amplification®</p>
                                     </div>
                                 </div>
 
                                 {/* Scanline Effect */}
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-gold/5 to-transparent h-[10%] w-full animate-scan" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-accent/5 to-transparent h-[10%] w-full animate-scan" />
                             </div>
                             <div className="mt-4 flex justify-between items-center border-t border-white/10 pt-4">
                                 <span className="font-sans text-xs text-gray-500 font-bold">Sodalis RDI Technologies</span>
-                                <span className="font-sans text-xs text-brand-gold font-bold">Systema IRIS M™</span>
+                                <span className="font-sans text-xs text-brand-accent font-bold">Systema IRIS M™</span>
                             </div>
                         </RevealSection>
                     </div>

@@ -74,14 +74,14 @@ export const ServicePathway: React.FC = () => {
                                     <p className="font-sans text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                         Intentio: {sector.focus}
                                     </p>
-                                    <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-brand-gold">
+                                    <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-brand-accent">
                                         Vide Sectorem →
                                     </span>
                                 </div>
                             </div>
 
                             {/* Hover Border */}
-                            <div className="absolute inset-0 border-4 border-brand-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                            <div className="absolute inset-0 border-4 border-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                         </div>
                     ))}
                 </div>

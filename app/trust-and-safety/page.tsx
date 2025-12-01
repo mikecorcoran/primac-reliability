@@ -22,8 +22,8 @@ export default function TrustAndSafetyPage() {
 
         <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10 w-full">
           <RevealSection>
-            <div className="inline-flex items-center gap-2 mb-6 text-brand-red">
-              <span className="h-1 w-6 bg-brand-red inline-block" />
+            <div className="inline-flex items-center gap-2 mb-6 text-brand-accent">
+              <span className="h-1 w-6 bg-brand-accent inline-block" />
               <span className="font-sans text-xs uppercase tracking-widest font-bold">Clypeus</span>
             </div>
             <h1 className="font-display font-black text-5xl md:text-7xl uppercase tracking-tighter mb-6 leading-[0.9]">
@@ -61,7 +61,7 @@ export default function TrustAndSafetyPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {SAFETY_STATS.map((stat, index) => (
               <RevealSection key={stat.label} delay={index * 0.1}>
-                <div className="bg-bg-panel p-8 text-center border-t-4 border-brand-red">
+                <div className="bg-bg-panel p-8 text-center border-t-4 border-brand-accent">
                   <h3 className="font-display font-black text-5xl md:text-6xl text-text-main mb-2">{stat.value}</h3>
                   <p className="font-display font-bold text-sm uppercase tracking-wider text-text-main mb-1">{stat.label}</p>
                   <p className="font-sans text-xs text-text-muted font-bold">{stat.sub}</p>
@@ -101,14 +101,14 @@ export default function TrustAndSafetyPage() {
           </div>
 
           <RevealSection delay={0.4}>
-            <div className="mt-16 bg-brand-red/5 border border-brand-red/20 p-8 md:p-12 rounded-sm flex flex-col md:flex-row items-start md:items-center gap-8">
+            <div className="mt-16 bg-brand-accent/5 border border-brand-accent/20 p-8 md:p-12 rounded-sm flex flex-col md:flex-row items-start md:items-center gap-8">
               <div className="flex-1">
                 <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main mb-2">Potestas Operis Sistere</h3>
                 <p className="font-sans text-text-muted leading-relaxed">
                   Omnis technicus Primac plenam auctoritatem habet opus sistere si condicio est infesta. Urgentiam temporis cum sanctitate vitae aequamus. Nulla exceptio.
                 </p>
               </div>
-              <button className="whitespace-nowrap bg-white border border-gray-200 text-text-main px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors">
+              <button className="whitespace-nowrap bg-white border border-gray-200 text-text-main px-6 py-3 font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-colors">
                 Vide Manuale Salutis
               </button>
             </div>

@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${montserrat.variable} ${jetbrains.variable} bg-bg-page text-text-main selection:bg-brand-gold selection:text-white`}
+        className={`${inter.variable} ${montserrat.variable} ${jetbrains.variable} bg-bg-page text-text-main selection:bg-brand-accent selection:text-white`}
       >
         <Header />
         {children}

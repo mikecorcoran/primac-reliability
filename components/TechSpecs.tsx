@@ -34,7 +34,7 @@ export const TechSpecs: React.FC = () => {
                   key={index}
                   className="group grid grid-cols-12 items-center border-b border-gray-200 py-6 hover:bg-white transition-colors duration-300 px-4 relative overflow-hidden"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-accent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                   <div className="col-span-2 hidden md:block">
                     <span className="font-sans text-xs text-gray-400 tracking-widest">{spec.code}</span>
                   </div>

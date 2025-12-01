@@ -29,8 +29,8 @@ export default function MiningPage() {
 
         <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10 w-full">
           <RevealSection>
-            <div className="inline-block bg-brand-gold/20 border border-brand-gold/50 px-4 py-2 mb-6">
-              <span className="font-sans text-xs text-brand-gold uppercase tracking-widest font-bold">
+            <div className="inline-block bg-brand-accent/20 border border-brand-accent/50 px-4 py-2 mb-6">
+              <span className="font-sans text-xs text-brand-accent uppercase tracking-widest font-bold">
                 Linea Industria: Metalla et Extractio
               </span>
             </div>
@@ -50,7 +50,7 @@ export default function MiningPage() {
         <div className="max-w-[1920px] mx-auto px-6 md:px-12">
           <RevealSection>
             <div className="mb-16 max-w-3xl">
-              <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-red mb-4">Res Vera</h3>
+              <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-brand-accent mb-4">Res Vera</h3>
               <h2 className="font-display font-black text-4xl md:text-5xl text-white uppercase tracking-tight mb-6">
                 Sumptus Tacentis.
               </h2>
@@ -65,8 +65,8 @@ export default function MiningPage() {
               <RevealSection key={point.title} delay={index * 0.1}>
                 <div className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors duration-300 group">
                   <div className="flex justify-between items-start mb-6">
-                    <span className="h-1 w-10 bg-brand-gold block group-hover:w-12 transition-all duration-300" />
-                    <span className="font-sans text-xl text-brand-red font-bold">{point.cost}</span>
+                    <span className="h-1 w-10 bg-brand-accent block group-hover:w-12 transition-all duration-300" />
+                    <span className="font-sans text-xl text-brand-accent font-bold">{point.cost}</span>
                   </div>
                   <h3 className="font-display font-bold text-2xl uppercase tracking-wide mb-4">{point.title}</h3>
                   <p className="font-sans text-gray-400 text-sm leading-relaxed">{point.description}</p>
@@ -79,12 +79,12 @@ export default function MiningPage() {
 
       <section className="py-24 bg-white">
         <div className="max-w-[1920px] mx-auto px-6 md:px-12">
-          <div className="bg-bg-panel border-l-8 border-brand-gold p-8 md:p-16 relative overflow-hidden">
+          <div className="bg-bg-panel border-l-8 border-brand-accent p-8 md:p-16 relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="inline-flex items-center gap-2 mb-6">
-                  <span className="w-3 h-3 bg-brand-red rounded-full animate-pulse" />
-                  <span className="font-sans text-xs text-brand-red uppercase tracking-widest font-bold">Documentum: Tractus Salsae</span>
+                  <span className="w-3 h-3 bg-brand-accent rounded-full animate-pulse" />
+                  <span className="font-sans text-xs text-brand-accent uppercase tracking-widest font-bold">Documentum: Tractus Salsae</span>
                 </div>
                 <h2 className="font-display font-black text-4xl md:text-6xl text-text-main uppercase tracking-tight mb-8">
                   Servatum: $1.2M
@@ -95,7 +95,7 @@ export default function MiningPage() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus magna et risus faucibus, eget suscipit leo sagittis.
                   Primac ordinavit substitutionem destinatum mutatione vigiliae, vitans discrimen quod productionem omnem intermisisset.
                 </p>
-                <button className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-[0.2em] text-text-main hover:text-brand-gold transition-colors">
+                <button className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-[0.2em] text-text-main hover:text-brand-accent transition-colors">
                   Lege Causam Totam →
                 </button>
               </div>
@@ -109,11 +109,11 @@ export default function MiningPage() {
                   </div>
                   <div className="flex justify-between border-b border-gray-100 pb-2">
                     <span className="font-sans text-xs text-gray-500 font-bold">VITIUM</span>
-                    <span className="font-sans text-xs font-bold text-brand-red">DEFECTUS INTERIOR (BPFI)</span>
+                    <span className="font-sans text-xs font-bold text-brand-accent">DEFECTUS INTERIOR (BPFI)</span>
                   </div>
                   <div className="flex justify-between border-b border-gray-100 pb-2">
                     <span className="font-sans text-xs text-gray-500 font-bold">GRAVITAS</span>
-                    <span className="font-sans text-xs font-bold text-brand-red">CRITICA (ISO ZONA D)</span>
+                    <span className="font-sans text-xs font-bold text-brand-accent">CRITICA (ISO ZONA D)</span>
                   </div>
                   <div className="flex justify-between border-b border-gray-100 pb-2">
                     <span className="font-sans text-xs text-gray-500 font-bold">EXITUS</span>
