@@ -193,6 +193,8 @@ export function AiEditorChat() {
           <div className="px-4 py-3 border-b border-gray-200 text-[11px] leading-relaxed text-gray-700 bg-white">
             I can edit TSX pages, components, and small content files. Multi-page updates (like a color change across sections)
             can be batched into a single commit. I avoid config files or sweeping platform changes.
+            <br />
+            Now running on the gpt-5.1-codex model for sharper tool use and coding precision.
           </div>
 
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2" style={{ scrollbarWidth: "thin" }}>

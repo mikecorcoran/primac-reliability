@@ -162,7 +162,7 @@ export async function POST(request: NextRequest) {
     ];
 
     let aiResponse = await openai.chat.completions.create({
-      model: "gpt-5.1",
+      model: "gpt-5.1-codex",
       messages: conversation,
       tools,
       tool_choice: "auto",
@@ -189,7 +189,7 @@ export async function POST(request: NextRequest) {
       }
 
       aiResponse = await openai.chat.completions.create({
-        model: "gpt-5.1",
+        model: "gpt-5.1-codex",
         messages: conversation,
         tools,
       });
