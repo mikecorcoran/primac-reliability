@@ -161,8 +161,10 @@ export async function POST(request: NextRequest) {
       ...sanitizedMessages,
     ];
 
+    const model = process.env.OPENAI_MODEL || "gpt-5.1-codex";
+
     let aiResponse = await openai.chat.completions.create({
-      model: "gpt-5.1-codex",
+      model,
       messages: conversation,
       tools,
       tool_choice: "auto",
@@ -189,7 +191,7 @@ export async function POST(request: NextRequest) {
       }
 
       aiResponse = await openai.chat.completions.create({
-        model: "gpt-5.1-codex",
+        model,
         messages: conversation,
         tools,
       });
