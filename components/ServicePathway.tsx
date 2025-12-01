@@ -46,7 +46,7 @@ export const ServicePathway: React.FC = () => {
                             <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Sectorem Tuae Pete</h2>
                         </div>
                         <div className="hidden md:block">
-                            <span className="font-sans text-xs text-text-muted font-bold">Volue ad Perscrutandum 19d</span>
+                            <span className="font-sans text-xs text-text-muted font-bold">Volue ad Perscrutandum \u0019\u0002d</span>
                         </div>
                     </div>
                 </RevealSection>
@@ -74,14 +74,14 @@ export const ServicePathway: React.FC = () => {
                                     <p className="font-sans text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                         Intentio: {sector.focus}
                                     </p>
-                                    <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-emerald-400">
-                                        Vide Sectorem 19d
+                                    <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-green-700">
+                                        Vide Sectorem \u0019\u0002d
                                     </span>
                                 </div>
                             </div>
 
                             {/* Hover Border */}
-                            <div className="absolute inset-0 border-4 border-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                            <div className="absolute inset-0 border-4 border-green-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                         </div>
                     ))}
                 </div>
