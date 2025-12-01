@@ -1,4 +1,4 @@
-import { getFile, updateFile } from "@/lib/github";
+import { getFile, updateFile, updateFiles } from "@/lib/github";
 import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -37,15 +37,45 @@ const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "update_files",
+      description:
+        "Batch multiple text file updates into a single commit on the ai-sandbox branch. Only use for text-based sources.",
+      parameters: {
+        type: "object",
+        properties: {
+          description: { type: "string", description: "Short summary of the combined change" },
+          files: {
+            type: "array",
+            description: "One or more text files to update in a single commit.",
+            items: {
+              type: "object",
+              properties: {
+                path: { type: "string", description: "File path relative to repo root" },
+                newContent: { type: "string", description: "Full new file contents in UTF-8" },
+              },
+              required: ["path", "newContent"],
+            },
+            minItems: 1,
+          },
+        },
+        required: ["description", "files"],
+      },
+    },
+  },
 ];
 
 const systemMessage = `You are an AI editor for a Next.js + TypeScript site using the App Router.
 - Only edit TSX page files (app/**/page.tsx), TSX components under components/**, or small content/config files.
 - Do NOT edit app/layout.tsx, package.json, lockfiles, next.config.*, tsconfig.json, env files, CI configs, or Vercel config.
 - You may edit multiple eligible files when needed (for example, consistent color updates across pages), but keep the scope as small as possible.
+- Prefer batching related edits with update_files (single commit) instead of one commit per file when multiple text files need changes.
 - Use get_file before editing anything.
 - Keep JSX/TypeScript valid and preserve imports/exports and component signatures.
-- Make minimal changes that satisfy the request.
+- Keep commits text-only. Do not generate binaries, images, or minified bundles. Work in UTF-8 and preserve line endings.
+- Make minimal changes that satisfy the request while keeping context across the full conversation.
 - Commit updates exclusively to branch ${process.env.GITHUB_BRANCH}.
 - After applying edits, respond with a short summary describing what changed, which file paths were touched, and what will look different when ai-sandbox deploys.`;
 
@@ -58,6 +88,10 @@ async function handleToolCall(name: string, args: Record<string, any>) {
     case "update_file": {
       await updateFile(args.path, args.newContent, args.description);
       return { path: args.path, status: "updated" };
+    }
+    case "update_files": {
+      const result = await updateFiles(args.files, args.description);
+      return { status: "updated", paths: result.updated };
     }
     default:
       throw new Error(`Unknown tool: ${name}`);

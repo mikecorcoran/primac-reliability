@@ -19,6 +19,21 @@ type AiEditorResponse = {
   diagnostics?: Diagnostics;
 };
 
+const STORAGE_KEY = "ai-editor-chat-state";
+const DEFAULT_MESSAGES: ChatMessage[] = [
+  {
+    role: "assistant",
+    content:
+      "Hi! Describe the UI change you want. I can edit multiple pages/components in one commit and keep context across the chat.",
+  },
+];
+
+type PersistedState = {
+  messages: ChatMessage[];
+  input: string;
+  isOpen: boolean;
+};
+
 const parseChatMessages = (rawMessages: unknown): ChatMessage[] => {
   if (!Array.isArray(rawMessages)) return [];
 
@@ -43,11 +58,7 @@ export function AiEditorChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([{
-    role: "assistant",
-    content:
-      "Hi! Describe the small UI change you want on this page and I'll update the ai-sandbox branch for you.",
-  }]);
+  const [messages, setMessages] = useState<ChatMessage[]>(DEFAULT_MESSAGES);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
@@ -61,6 +72,34 @@ export function AiEditorChat() {
       scrollToBottom();
     }
   }, [isOpen, messages]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const rawState = window.sessionStorage.getItem(STORAGE_KEY);
+    if (!rawState) return;
+
+    try {
+      const persisted = JSON.parse(rawState) as Partial<PersistedState>;
+      setMessages(persisted.messages && persisted.messages.length ? persisted.messages : DEFAULT_MESSAGES);
+      setInput(persisted.input ?? "");
+      setIsOpen(persisted.isOpen ?? false);
+    } catch (error) {
+      console.warn("Unable to restore AI editor chat state", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const payload: PersistedState = {
+      messages,
+      input,
+      isOpen,
+    };
+
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  }, [messages, input, isOpen]);
 
   const handleSubmit = async () => {
     if (!input.trim()) return;
@@ -153,7 +192,7 @@ export function AiEditorChat() {
 
           <div className="px-4 py-3 border-b border-gray-200 text-[11px] leading-relaxed text-gray-700 bg-white">
             I can edit TSX pages, components, and small content files. Multi-page updates (like a color change across sections)
-            are okay, but I avoid config files or sweeping platform changes.
+            can be batched into a single commit. I avoid config files or sweeping platform changes.
           </div>
 
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2" style={{ scrollbarWidth: "thin" }}>

@@ -71,3 +71,127 @@ export async function updateFile(path: string, newContent: string, description: 
     throw new Error(`GitHub updateFile failed: ${response.status} ${message}`);
   }
 }
+
+type FileUpdate = {
+  path: string;
+  newContent: string;
+};
+
+export async function updateFiles(
+  updates: FileUpdate[],
+  description: string,
+): Promise<{ updated: string[] }> {
+  if (!updates.length) {
+    throw new Error("No file updates provided");
+  }
+
+  const refResponse = await fetch(
+    `${apiBase}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/refs/heads/${GITHUB_BRANCH}`,
+    { headers: baseHeaders },
+  );
+
+  if (!refResponse.ok) {
+    const message = await refResponse.text();
+    throw new Error(`GitHub fetch ref failed: ${refResponse.status} ${message}`);
+  }
+
+  const refData = await refResponse.json();
+  const baseCommitSha = (refData as { object?: { sha?: string } }).object?.sha;
+
+  if (!baseCommitSha) {
+    throw new Error("Unable to resolve base commit SHA for branch");
+  }
+
+  const commitResponse = await fetch(
+    `${apiBase}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/commits/${baseCommitSha}`,
+    { headers: baseHeaders },
+  );
+
+  if (!commitResponse.ok) {
+    const message = await commitResponse.text();
+    throw new Error(`GitHub fetch commit failed: ${commitResponse.status} ${message}`);
+  }
+
+  const commitData = await commitResponse.json();
+  const baseTreeSha = (commitData as { tree?: { sha?: string } }).tree?.sha;
+
+  if (!baseTreeSha) {
+    throw new Error("Unable to resolve base tree SHA for commit");
+  }
+
+  const treeResponse = await fetch(`${apiBase}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees`, {
+    method: "POST",
+    headers: {
+      ...baseHeaders,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      base_tree: baseTreeSha,
+      tree: updates.map((update) => ({
+        path: update.path,
+        mode: "100644",
+        type: "blob",
+        content: update.newContent,
+      })),
+    }),
+  });
+
+  if (!treeResponse.ok) {
+    const message = await treeResponse.text();
+    throw new Error(`GitHub create tree failed: ${treeResponse.status} ${message}`);
+  }
+
+  const newTree = await treeResponse.json();
+  const newTreeSha = (newTree as { sha?: string }).sha;
+
+  if (!newTreeSha) {
+    throw new Error("Unable to create updated tree");
+  }
+
+  const commitCreateResponse = await fetch(
+    `${apiBase}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/commits`,
+    {
+      method: "POST",
+      headers: {
+        ...baseHeaders,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `chore(ai): ${description}`,
+        tree: newTreeSha,
+        parents: [baseCommitSha],
+      }),
+    },
+  );
+
+  if (!commitCreateResponse.ok) {
+    const message = await commitCreateResponse.text();
+    throw new Error(`GitHub create commit failed: ${commitCreateResponse.status} ${message}`);
+  }
+
+  const commitCreateData = await commitCreateResponse.json();
+  const newCommitSha = (commitCreateData as { sha?: string }).sha;
+
+  if (!newCommitSha) {
+    throw new Error("Unable to create commit for updates");
+  }
+
+  const refUpdateResponse = await fetch(
+    `${apiBase}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/refs/heads/${GITHUB_BRANCH}`,
+    {
+      method: "PATCH",
+      headers: {
+        ...baseHeaders,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ sha: newCommitSha }),
+    },
+  );
+
+  if (!refUpdateResponse.ok) {
+    const message = await refUpdateResponse.text();
+    throw new Error(`GitHub update ref failed: ${refUpdateResponse.status} ${message}`);
+  }
+
+  return { updated: updates.map((update) => update.path) };
+}
