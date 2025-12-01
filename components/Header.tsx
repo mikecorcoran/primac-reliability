@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavItem } from '../types';
 
@@ -189,10 +190,13 @@ export const Header: React.FC = () => {
                 </div>
                 <div className="col-span-5 col-start-8">
                   <div className="aspect-video bg-bg-panel relative overflow-hidden group cursor-pointer">
-                    <img
+                    <Image
                       src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop"
                       alt="Featured"
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(min-width: 1280px) 50vw, 100vw"
+                      priority
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                     <div className="absolute bottom-8 left-8 bg-white p-6 shadow-lg max-w-xs">

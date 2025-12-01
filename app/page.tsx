@@ -7,6 +7,7 @@ import { ProductSlider } from "@/components/ProductSlider";
 import { TechSpecs } from "@/components/TechSpecs";
 import { RevealSection } from "@/components/RevealSection";
 import { Button } from "@/components/Button";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -33,10 +34,13 @@ export default function HomePage() {
 
       <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&q=80&w=2000"
-            className="w-full h-full object-cover contrast-125"
+            className="object-cover contrast-125"
             alt="Processus Industrialis"
+            fill
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/20" />
         </div>
