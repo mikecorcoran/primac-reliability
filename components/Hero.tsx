@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-emerald-500 text-white"
+          className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-green-800 text-white"
         >
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
             Quies<br />
@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-4">
-            <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-emerald-600 transition-colors">
+            <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 bg-green-800 text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-green-900 transition-colors">
               Mitte Peritum
             </a>
             <a href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-white text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors">
