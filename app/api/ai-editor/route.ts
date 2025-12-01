@@ -98,6 +98,38 @@ async function handleToolCall(name: string, args: Record<string, any>) {
   }
 }
 
+const codexToolingPrimer = `You can ask the server to call tools for you by returning **only** a JSON object on a single line.
+
+Use one of these shapes:
+1) {"type":"tool","name":"get_file","arguments":{"path":"..."}}
+2) {"type":"tool","name":"update_file","arguments":{"path":"...","description":"...","newContent":"..."}}
+3) {"type":"tool","name":"update_files","arguments":{"description":"...","files":[{"path":"...","newContent":"..."}]}}
+4) {"type":"response","content":"Final user-facing reply"}
+
+Never include Markdown, code fences, or extra prose—only the JSON object.`;
+
+function isChatModel(model: string) {
+  return !model.toLowerCase().includes("codex");
+}
+
+function buildCodexPrompt(
+  history: { role: "user" | "assistant" | "tool"; content: string }[],
+  nextAssistantPrefix = "ASSISTANT:",
+) {
+  const conversation = history
+    .map((entry) => {
+      if (entry.role === "tool") {
+        return `TOOL RESULT: ${entry.content}`;
+      }
+
+      const roleLabel = entry.role === "user" ? "USER" : "ASSISTANT";
+      return `${roleLabel}: ${entry.content}`;
+    })
+    .join("\n");
+
+  return `${systemMessage}\n\n${codexToolingPrimer}\n\nConversation so far:\n${conversation}\n${nextAssistantPrefix}`;
+}
+
 function buildDiagnostics(error: unknown) {
   const errorType = error instanceof Error ? error.name : typeof error;
   const message = error instanceof Error ? error.message : String(error);
@@ -156,53 +188,110 @@ export async function POST(request: NextRequest) {
       )
       .map((message) => ({ role: message.role, content: message.content }));
 
-    const conversation: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
-      { role: "system", content: systemMessage },
-      ...sanitizedMessages,
-    ];
-
     const model = process.env.OPENAI_MODEL || "gpt-5.1-codex";
 
-    let aiResponse = await openai.chat.completions.create({
-      model,
-      messages: conversation,
-      tools,
-      tool_choice: "auto",
-    });
+    if (isChatModel(model)) {
+      const conversation: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
+        { role: "system", content: systemMessage },
+        ...sanitizedMessages,
+      ];
 
-    let message = aiResponse.choices[0].message;
-    const safetyGuard = 6;
-    let iterations = 0;
-
-    while (message?.tool_calls && iterations < safetyGuard) {
-      const toolCalls = message.tool_calls;
-      if (!toolCalls) break;
-
-      conversation.push(message);
-
-      for (const toolCall of toolCalls) {
-        const args = JSON.parse(toolCall.function.arguments || "{}");
-        const result = await handleToolCall(toolCall.function.name, args);
-        conversation.push({
-          role: "tool",
-          tool_call_id: toolCall.id,
-          content: JSON.stringify(result),
-        });
-      }
-
-      aiResponse = await openai.chat.completions.create({
+      let aiResponse = await openai.chat.completions.create({
         model,
         messages: conversation,
         tools,
+        tool_choice: "auto",
       });
 
-      message = aiResponse.choices[0].message;
-      iterations += 1;
+      let message = aiResponse.choices[0].message;
+      const safetyGuard = 6;
+      let iterations = 0;
+
+      while (message?.tool_calls && iterations < safetyGuard) {
+        const toolCalls = message.tool_calls;
+        if (!toolCalls) break;
+
+        conversation.push(message);
+
+        for (const toolCall of toolCalls) {
+          const args = JSON.parse(toolCall.function.arguments || "{}");
+          const result = await handleToolCall(toolCall.function.name, args);
+          conversation.push({
+            role: "tool",
+            tool_call_id: toolCall.id,
+            content: JSON.stringify(result),
+          });
+        }
+
+        aiResponse = await openai.chat.completions.create({
+          model,
+          messages: conversation,
+          tools,
+        });
+
+        message = aiResponse.choices[0].message;
+        iterations += 1;
+      }
+
+      const finalContent = message?.content ?? "I couldn't generate an update summary.";
+
+      return NextResponse.json({ messages: [{ role: "assistant", content: finalContent }] });
     }
 
-    const finalContent = message?.content ?? "I couldn't generate an update summary.";
+    // Fallback for completion-only Codex models
+    const codexHistory: { role: "user" | "assistant" | "tool"; content: string }[] = sanitizedMessages;
+    let codexPrompt = buildCodexPrompt(codexHistory);
+    let codexIterations = 0;
+    const codexLimit = 6;
+    let finalCodexContent = "";
 
-    return NextResponse.json({ messages: [{ role: "assistant", content: finalContent }] });
+    while (codexIterations < codexLimit) {
+      const completion = await openai.completions.create({
+        model,
+        prompt: codexPrompt,
+        temperature: 0,
+      });
+
+      const content = completion.choices[0]?.text?.trim();
+
+      if (!content) {
+        finalCodexContent = "The model did not return any content.";
+        break;
+      }
+
+      let parsed: { type?: string; name?: string; arguments?: Record<string, any>; content?: string };
+
+      try {
+        parsed = JSON.parse(content);
+      } catch (error) {
+        finalCodexContent =
+          "The model returned an invalid response format. Please retry your request with a shorter instruction.";
+        break;
+      }
+
+      if (parsed.type === "tool" && parsed.name) {
+        const result = await handleToolCall(parsed.name, parsed.arguments ?? {});
+        codexHistory.push({ role: "assistant", content });
+        codexHistory.push({ role: "tool", content: JSON.stringify(result) });
+        codexPrompt = buildCodexPrompt(codexHistory);
+        codexIterations += 1;
+        continue;
+      }
+
+      if (parsed.type === "response" && parsed.content) {
+        finalCodexContent = parsed.content;
+      } else {
+        finalCodexContent =
+          "The model did not provide a valid response payload. Please try again with a concise instruction.";
+      }
+      break;
+    }
+
+    if (!finalCodexContent) {
+      finalCodexContent = "I couldn't generate an update summary.";
+    }
+
+    return NextResponse.json({ messages: [{ role: "assistant", content: finalCodexContent }] });
   } catch (error) {
     const diagnostics = buildDiagnostics(error);
     console.error("/api/ai-editor error", error);
