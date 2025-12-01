@@ -1,4 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavItem } from '../types';
 
@@ -98,14 +102,11 @@ export const Header: React.FC = () => {
         <div className="max-w-[1920px] mx-auto px-6 md:px-12 flex justify-between items-center relative">
 
           {/* Logo */}
-          <a
-            href="/"
-            className="relative z-50 flex items-center gap-2"
-          >
+          <Link href="/" className="relative z-50 flex items-center gap-2">
             <h1 className="font-display font-black text-3xl tracking-tighter text-text-main uppercase">
               PRIMAC
             </h1>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-12" onMouseLeave={() => setHoveredItem(null)}>
@@ -115,7 +116,7 @@ export const Header: React.FC = () => {
                 className="relative group h-full"
                 onMouseEnter={() => setHoveredItem(item.children ? item.label : null)}
               >
-                <a
+                <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className="flex items-center gap-1 font-display text-xs font-bold uppercase tracking-[0.1em] text-text-main hover:text-brand-gold transition-colors py-2"
@@ -128,7 +129,7 @@ export const Header: React.FC = () => {
                       ▼
                     </span>
                   )}
-                </a>
+                </Link>
 
                 {/* Hover Indicator Line */}
                 <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-brand-gold transform origin-left transition-transform duration-300 ${hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
@@ -175,24 +176,27 @@ export const Header: React.FC = () => {
                   <ul className="space-y-4">
                     {NAV_ITEMS.find(i => i.label === hoveredItem)?.children?.map(child => (
                       <li key={child.label}>
-                        <a
+                        <Link
                           href={child.href}
                           onClick={(e) => handleNavClick(e, child.href)}
                           className="group flex items-center gap-3 text-text-main hover:text-brand-gold transition-colors font-sans font-medium text-lg"
                         >
                           <span className="text-sm opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-brand-gold">→</span>
                           {child.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="col-span-5 col-start-8">
                   <div className="aspect-video bg-bg-panel relative overflow-hidden group cursor-pointer">
-                    <img
+                    <Image
                       src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop"
                       alt="Featured"
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(min-width: 1280px) 50vw, 100vw"
+                      priority
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                     <div className="absolute bottom-8 left-8 bg-white p-6 shadow-lg max-w-xs">
@@ -220,25 +224,25 @@ export const Header: React.FC = () => {
             <nav className="flex flex-col gap-8 pb-12">
               {NAV_ITEMS.map((item) => (
                 <div key={item.label} className="border-b border-gray-100 pb-4">
-                  <a
+                  <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className="font-display text-2xl font-bold uppercase text-text-main tracking-tight flex justify-between items-center"
                   >
                     {item.label}
                     {item.children && <span className="text-brand-gold">→</span>}
-                  </a>
+                  </Link>
                   {item.children && (
                     <div className="mt-4 pl-4 flex flex-col gap-3">
                       {item.children.map(child => (
-                        <a
+                        <Link
                           key={child.label}
                           href={child.href}
                           onClick={(e) => handleNavClick(e, child.href)}
                           className="text-text-muted font-sans text-sm font-medium"
                         >
                           {child.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

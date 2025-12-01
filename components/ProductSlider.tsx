@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, useMotionValue } from 'framer-motion';
 import { Product } from '../types';
 
@@ -80,11 +83,13 @@ export const ProductSlider: React.FC = () => {
               </div>
 
               <div className="aspect-[4/3] bg-bg-panel overflow-hidden mb-8 relative">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
-                  draggable="false"
+                  fill
+                  className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
+                  draggable={false}
+                  sizes="(min-width: 768px) 420px, 300px"
                 />
                 {/* Accent Line on Hover */}
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
