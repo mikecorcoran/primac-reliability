@@ -131,6 +131,11 @@ export function AiEditorChat() {
             <span className="text-[10px] text-gray-500">Powered by ai-sandbox</span>
           </div>
 
+          <div className="px-4 py-3 border-b border-gray-200 text-[11px] leading-relaxed text-gray-700 bg-white">
+            I can edit TSX pages, components, and small content files. Multi-page updates (like a color change across sections)
+            are okay, but I avoid config files or sweeping platform changes.
+          </div>
+
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2" style={{ scrollbarWidth: "thin" }}>
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`} className="space-y-1">
