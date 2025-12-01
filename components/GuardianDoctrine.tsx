@@ -34,8 +34,8 @@ export const GuardianDoctrine: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {DOCTRINE_POINTS.map((point, index) => (
                         <RevealSection key={point.title} delay={index * 0.1}>
-                            <div className="bg-white p-8 h-full border-t-4 border-transparent hover:border-green-800 transition-colors duration-300 group shadow-sm hover:shadow-md">
-                                <div className="mb-6 h-1 w-12 bg-green-800 group-hover:w-16 transition-all duration-300" />
+                            <div className="bg-white p-8 h-full border-t-4 border-transparent hover:border-emerald-700 transition-colors duration-300 group shadow-sm hover:shadow-md">
+                                <div className="mb-6 h-1 w-12 bg-emerald-700 group-hover:w-16 transition-all duration-300" />
                                 <h3 className="font-display font-bold text-xl uppercase tracking-wide mb-4 text-text-main">{point.title}</h3>
                                 <p className="font-sans text-text-muted leading-relaxed text-sm">
                                     {point.description}
