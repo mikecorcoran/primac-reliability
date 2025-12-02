@@ -51,8 +51,8 @@ export const ServicePathway: React.FC = () => {
                     </div>
                 </RevealSection>
 
-                <div className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 md:px-2">
-                    <div className="shrink-0 w-4 sm:w-5" aria-hidden />
+                <div className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide px-6 sm:px-8 md:px-12">
+                    <div className="shrink-0 w-6 sm:w-8 md:w-12" aria-hidden />
                     {SECTORS.map((sector, index) => (
                         <div key={sector.title} className="min-w-[300px] md:min-w-[400px] snap-start">
                             <div className="relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer group">
@@ -100,7 +100,7 @@ export const ServicePathway: React.FC = () => {
                             </div>
                         </div>
                     ))}
-                    <div className="shrink-0 w-4 sm:w-5" aria-hidden />
+                    <div className="shrink-0 w-6 sm:w-8 md:w-12" aria-hidden />
                 </div>
             </div>
         </section>

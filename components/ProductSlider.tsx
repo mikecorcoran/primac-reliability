@@ -42,16 +42,9 @@ export const ProductSlider: React.FC = () => {
   const x = useMotionValue(0);
 
   useEffect(() => {
-    const calculateWidth = () => {
-      if (carousel.current) {
-        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-      }
-    };
-
-    calculateWidth();
-    window.addEventListener('resize', calculateWidth);
-
-    return () => window.removeEventListener('resize', calculateWidth);
+    if (carousel.current) {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
   }, []);
 
   return (
@@ -73,21 +66,17 @@ export const ProductSlider: React.FC = () => {
 
       <motion.div
         ref={carousel}
-        className="cursor-grab active:cursor-grabbing overflow-hidden pl-6 pr-8 sm:pl-10 sm:pr-12 md:pl-16 md:pr-16"
+        className="cursor-grab active:cursor-grabbing overflow-hidden pl-6 md:pl-12"
       >
         <motion.div
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
-          className="flex gap-6 sm:gap-8 w-fit pr-12 sm:pr-16"
+          className="flex gap-8 w-fit pr-12"
           whileTap={{ cursor: "grabbing" }}
           style={{ x }}
         >
-          <div className="shrink-0 w-5 sm:w-8 md:w-12" />
           {PRODUCTS.map((product) => (
-            <div
-              key={product.id}
-              className="relative min-w-[300px] md:min-w-[420px] group mx-4 md:mx-6 lg:mx-8 bg-white p-8 hover:shadow-xl transition-shadow duration-500 ease-out"
-            >
+            <div key={product.id} className="min-w-[300px] md:min-w-[420px] group bg-white p-8 hover:shadow-xl transition-shadow duration-500 ease-out">
               <div className="mb-8">
                 <p className="font-display font-bold text-xs uppercase tracking-widest text-text-muted mb-2">{product.category}</p>
                 <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main">{product.name}</h3>
@@ -98,28 +87,12 @@ export const ProductSlider: React.FC = () => {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover transition-all duration-700 grayscale group-hover:grayscale-0 mix-blend-multiply group-hover:mix-blend-normal group-hover:scale-110"
+                  className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
                   draggable={false}
                   sizes="(min-width: 768px) 420px, 300px"
                 />
-                <svg
-                  className="absolute inset-0 z-10 pointer-events-none"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  aria-hidden
-                >
-                  <rect
-                    x="1"
-                    y="1"
-                    width="98"
-                    height="98"
-                    pathLength="1"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    className="text-brand-accent [stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
-                  />
-                </svg>
+                {/* Accent Line on Hover */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
 
               <div className="flex justify-between items-center">
@@ -134,7 +107,6 @@ export const ProductSlider: React.FC = () => {
               </div>
             </div>
           ))}
-          <div className="shrink-0 w-5 sm:w-8 md:w-12" />
         </motion.div>
       </motion.div>
     </div>
