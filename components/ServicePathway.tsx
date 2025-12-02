@@ -61,7 +61,7 @@ export const ServicePathway: React.FC = () => {
                                 src={sector.image}
                                 alt={sector.title}
                                 fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                className="object-cover transition duration-700 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
                                 sizes="(min-width: 1024px) 400px, 80vw"
                                 priority={index === 0}
                             />
