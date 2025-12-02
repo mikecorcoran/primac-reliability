@@ -116,10 +116,7 @@ export const ProductSlider: React.FC = () => {
                     stroke="currentColor"
                     strokeWidth="2"
                     fill="none"
-                    pathLength={1}
-                    strokeDasharray="1"
-                    strokeDashoffset="1"
-                    className="text-brand-accent transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:stroke-dashoffset-0"
+                    className="text-brand-accent [stroke-dasharray:400] [stroke-dashoffset:400] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
                   />
                 </svg>
               </div>
