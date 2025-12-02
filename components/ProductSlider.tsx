@@ -82,6 +82,7 @@ export const ProductSlider: React.FC = () => {
           whileTap={{ cursor: "grabbing" }}
           style={{ x }}
         >
+          <div className="shrink-0 w-5 sm:w-8 md:w-12" />
           {PRODUCTS.map((product) => (
             <div key={product.id} className="min-w-[300px] md:min-w-[420px] group bg-white p-8 hover:shadow-xl transition-shadow duration-500 ease-out">
               <div className="mb-8">
@@ -99,12 +100,22 @@ export const ProductSlider: React.FC = () => {
                   sizes="(min-width: 768px) 420px, 300px"
                 />
                 {/* Animated Border Wrap on Hover */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <span className="absolute top-0 left-0 w-[2px] h-full bg-brand-accent scale-y-0 origin-top transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
-                  <span className="absolute bottom-0 left-0 h-[2px] w-full bg-brand-accent scale-x-0 origin-left transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
-                  <span className="absolute bottom-0 right-0 w-[2px] h-full bg-brand-accent scale-y-0 origin-bottom transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
-                  <span className="absolute top-0 right-0 h-[2px] w-full bg-brand-accent scale-x-0 origin-right transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
-                </div>
+                <svg className="absolute inset-0 pointer-events-none" viewBox="0 0 100 100" aria-hidden>
+                  <path
+                    d="M1 1 H99 V99"
+                    className="text-brand-accent [stroke-dasharray:196] [stroke-dashoffset:196] transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M99 99 H1 V1"
+                    className="text-brand-accent [stroke-dasharray:196] [stroke-dashoffset:196] transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
               </div>
 
               <div className="flex justify-between items-center">
@@ -119,6 +130,7 @@ export const ProductSlider: React.FC = () => {
               </div>
             </div>
           ))}
+          <div className="shrink-0 w-5 sm:w-8 md:w-12" />
         </motion.div>
       </motion.div>
     </div>
