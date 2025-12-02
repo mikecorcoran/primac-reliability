@@ -79,22 +79,26 @@ export const ServicePathway: React.FC = () => {
                                     y="1"
                                     width="98"
                                     height="98"
-                                    className="text-brand-accent [stroke-dasharray:392] [stroke-dashoffset:392] transition-[stroke-dashoffset] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
                                     stroke="currentColor"
                                     strokeWidth="2"
                                     fill="none"
-                                    vectorEffect="non-scaling-stroke"
+                                    pathLength={1}
+                                    strokeDasharray="1"
+                                    strokeDashoffset="1"
+                                    className="text-brand-accent transition-[stroke-dashoffset] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:stroke-dashoffset-0"
                                 />
                                 <rect
                                     x="1"
                                     y="1"
                                     width="98"
                                     height="98"
-                                    className="text-brand-accent [stroke-dasharray:392] [stroke-dashoffset:392] transition-[stroke-dashoffset] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
                                     stroke="currentColor"
                                     strokeWidth="2"
                                     fill="none"
-                                    vectorEffect="non-scaling-stroke"
+                                    pathLength={1}
+                                    strokeDasharray="1"
+                                    strokeDashoffset="1"
+                                    className="text-brand-accent transition-[stroke-dashoffset] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:stroke-dashoffset-0"
                                     transform="rotate(180 50 50)"
                                 />
                             </svg>
