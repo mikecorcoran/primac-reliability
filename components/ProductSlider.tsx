@@ -84,7 +84,10 @@ export const ProductSlider: React.FC = () => {
         >
           <div className="shrink-0 w-5 sm:w-8 md:w-12" />
           {PRODUCTS.map((product) => (
-            <div key={product.id} className="min-w-[300px] md:min-w-[420px] group bg-white p-8 hover:shadow-xl transition-shadow duration-500 ease-out">
+            <div
+              key={product.id}
+              className="relative min-w-[300px] md:min-w-[420px] group mx-4 md:mx-6 lg:mx-8 bg-white p-8 hover:shadow-xl transition-shadow duration-500 ease-out"
+            >
               <div className="mb-8">
                 <p className="font-display font-bold text-xs uppercase tracking-widest text-text-muted mb-2">{product.category}</p>
                 <h3 className="font-display font-black text-2xl uppercase tracking-tight text-text-main">{product.name}</h3>
@@ -99,18 +102,18 @@ export const ProductSlider: React.FC = () => {
                   draggable={false}
                   sizes="(min-width: 768px) 420px, 300px"
                 />
-                {/* Animated Border Wrap on Hover */}
-                <svg className="absolute inset-0 pointer-events-none" viewBox="0 0 100 100" aria-hidden>
-                  <path
-                    d="M1 1 H99 V99"
-                    className="text-brand-accent [stroke-dasharray:196] [stroke-dashoffset:196] transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  <path
-                    d="M99 99 H1 V1"
-                    className="text-brand-accent [stroke-dasharray:196] [stroke-dashoffset:196] transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                <svg
+                  className="absolute inset-0 z-10 pointer-events-none"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  aria-hidden
+                >
+                  <rect
+                    x="1"
+                    y="1"
+                    width="98"
+                    height="98"
+                    className="text-brand-accent [stroke-dasharray:392] [stroke-dashoffset:392] transition-[stroke-dashoffset] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
                     stroke="currentColor"
                     strokeWidth="2"
                     fill="none"
