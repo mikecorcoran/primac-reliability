@@ -42,9 +42,16 @@ export const ProductSlider: React.FC = () => {
   const x = useMotionValue(0);
 
   useEffect(() => {
-    if (carousel.current) {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }
+    const calculateWidth = () => {
+      if (carousel.current) {
+        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+      }
+    };
+
+    calculateWidth();
+    window.addEventListener('resize', calculateWidth);
+
+    return () => window.removeEventListener('resize', calculateWidth);
   }, []);
 
   return (
@@ -66,12 +73,12 @@ export const ProductSlider: React.FC = () => {
 
       <motion.div
         ref={carousel}
-        className="cursor-grab active:cursor-grabbing overflow-hidden pl-6 md:pl-12"
+        className="cursor-grab active:cursor-grabbing overflow-hidden px-6 sm:px-8 md:px-12"
       >
         <motion.div
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
-          className="flex gap-8 w-fit pr-12"
+          className="flex gap-6 sm:gap-8 w-fit pr-10 sm:pr-12"
           whileTap={{ cursor: "grabbing" }}
           style={{ x }}
         >
@@ -87,12 +94,17 @@ export const ProductSlider: React.FC = () => {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-all duration-700 grayscale group-hover:grayscale-0 mix-blend-multiply group-hover:mix-blend-normal group-hover:scale-110"
                   draggable={false}
                   sizes="(min-width: 768px) 420px, 300px"
                 />
-                {/* Accent Line on Hover */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                {/* Animated Border Wrap on Hover */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <span className="absolute top-0 left-0 h-[2px] w-full bg-brand-accent scale-x-0 origin-left transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+                  <span className="absolute top-0 right-0 w-[2px] h-full bg-brand-accent scale-y-0 origin-top transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75 group-hover:scale-y-100" />
+                  <span className="absolute bottom-0 left-0 h-[2px] w-full bg-brand-accent scale-x-0 origin-right transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] delay-[150ms] group-hover:scale-x-100" />
+                  <span className="absolute top-0 left-0 w-[2px] h-full bg-brand-accent scale-y-0 origin-bottom transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] delay-[225ms] group-hover:scale-y-100" />
+                </div>
               </div>
 
               <div className="flex justify-between items-center">
