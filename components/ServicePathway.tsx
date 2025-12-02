@@ -54,48 +54,47 @@ export const ServicePathway: React.FC = () => {
                 <div className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide px-4 sm:px-6 md:px-2">
                     <div className="shrink-0 w-4 sm:w-5" aria-hidden />
                     {SECTORS.map((sector, index) => (
-                        <div
-                            key={sector.title}
-                            className="min-w-[300px] md:min-w-[400px] snap-start group relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer"
-                        >
-                            <Image
-                                src={sector.image}
-                                alt={sector.title}
-                                fill
-                                className="object-cover transition duration-700 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
-                                sizes="(min-width: 1024px) 400px, 80vw"
-                                priority={index === 0}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 z-10" />
-
-                            <svg
-                                className="absolute inset-0 z-20 pointer-events-none"
-                                viewBox="0 0 100 100"
-                                preserveAspectRatio="none"
-                                aria-hidden
-                            >
-                                <rect
-                                    x="1"
-                                    y="1"
-                                    width="98"
-                                    height="98"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    className="text-brand-accent [stroke-dasharray:400] [stroke-dashoffset:400] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                        <div key={sector.title} className="min-w-[300px] md:min-w-[400px] snap-start">
+                            <div className="relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer group">
+                                <Image
+                                    src={sector.image}
+                                    alt={sector.title}
+                                    fill
+                                    className="object-cover transition duration-700 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                                    sizes="(min-width: 1024px) 400px, 80vw"
+                                    priority={index === 0}
                                 />
-                            </svg>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 z-10" />
 
-                            <div className="absolute bottom-0 left-0 w-full p-8 z-30">
+                                <svg
+                                    className="absolute inset-0 z-20 pointer-events-none"
+                                    viewBox="0 0 100 100"
+                                    preserveAspectRatio="none"
+                                    aria-hidden
+                                >
+                                    <rect
+                                        x="1"
+                                        y="1"
+                                        width="98"
+                                        height="98"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        className="text-brand-accent [stroke-dasharray:400] [stroke-dashoffset:400] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                                    />
+                                </svg>
+
+                                <div className="absolute bottom-0 left-0 w-full p-8 z-30">
                                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                    <span className="font-sans text-xs text-white/50 uppercase tracking-widest font-bold mb-2 block">Sectio {index + 1}</span>
-                                    <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight mb-2">{sector.title}</h3>
-                                    <p className="font-sans text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                        Intentio: {sector.focus}
-                                    </p>
-                                    <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-brand-accent">
-                                        Vide Sectorem →
-                                    </span>
+                                        <span className="font-sans text-xs text-white/50 uppercase tracking-widest font-bold mb-2 block">Sectio {index + 1}</span>
+                                        <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight mb-2">{sector.title}</h3>
+                                        <p className="font-sans text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                            Intentio: {sector.focus}
+                                        </p>
+                                        <span className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-[0.2em] text-brand-accent">
+                                            Vide Sectorem →
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
