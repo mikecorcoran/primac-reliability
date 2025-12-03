@@ -93,9 +93,9 @@ export const ServicePathway: React.FC = () => {
                                     height="98"
                                     pathLength="1"
                                     stroke="currentColor"
-                                    strokeWidth="2"
+                                    strokeWidth="3"
                                     fill="none"
-                                    className="text-brand-accent [stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                                    className="text-brand-accent [stroke-dasharray:1] [stroke-dashoffset:1] [vector-effect:non-scaling-stroke] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
                                 />
                             </svg>
                         </div>
