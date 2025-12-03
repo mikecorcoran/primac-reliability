@@ -100,10 +100,16 @@ export const DynaraExperience = () => {
               >
                 <p className="font-display text-xs tracking-[0.3em] uppercase text-brand-accent mb-4">Primac Reliability</p>
                 <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase tracking-tight text-white mb-6">
-                  Maximize Asset Availability. Eliminate Unplanned Downtime.
+                  <span className="md:hidden">Maximize Availability. End Downtime.</span>
+                  <span className="hidden md:inline">Maximize Asset Availability. Eliminate Unplanned Downtime.</span>
                 </h1>
                 <p className="font-sans text-lg text-white/85 leading-relaxed max-w-2xl">
-                  Primac delivers integrated vibration and condition monitoring solutions for critical rotating machinery. We help your team prevent in-service failures, reduce maintenance costs, and increase profitability across your operation.
+                  <span className="md:hidden">
+                    Integrated vibration and condition monitoring to stop failures before they start. Reduce emergency repairs and protect throughput.
+                  </span>
+                  <span className="hidden md:inline">
+                    Primac delivers integrated vibration and condition monitoring solutions for critical rotating machinery. We help your team prevent in-service failures, reduce maintenance costs, and increase profitability across your operation.
+                  </span>
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-6">
                   <Link
