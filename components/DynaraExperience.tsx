@@ -65,10 +65,12 @@ const advantages = [
   },
 ];
 
+const precisionEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const fadeSlide = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.9, ease: precisionEase },
 };
 
 export const DynaraExperience = () => {
@@ -164,7 +166,7 @@ export const DynaraExperience = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.9, ease: precisionEase }}
               className="relative border border-black/10 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
