@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { DynaraExperience } from "@/components/DynaraExperience";
 
 export const metadata: Metadata = {
-  title: "Dynara Libretio | Immersive Reliability Atlas 2026",
+  title: "Dynara Libretio | Condition Monitoring for Critical Machinery",
   description:
-    "A cinematic reliability theatre that layers living data, precision choreography, and Primac's guardian discipline.",
+    "Primac Reliability delivers integrated vibration and condition monitoring to eliminate unplanned downtime across industrial operations.",
 };
 
 export default function DynaraPage() {
