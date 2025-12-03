@@ -54,8 +54,8 @@ export const ServicePathway: React.FC = () => {
                 <div className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide px-6 sm:px-8 md:px-12">
                     <div className="shrink-0 w-6 sm:w-8 md:w-12" aria-hidden />
                     {SECTORS.map((sector, index) => (
-                        <div key={sector.title} className="min-w-[300px] md:min-w-[400px] snap-start">
-                            <div className="relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer group">
+                        <div key={sector.title} className="relative min-w-[300px] md:min-w-[400px] snap-start group">
+                            <div className="relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer">
                                 <Image
                                     src={sector.image}
                                     alt={sector.title}
@@ -65,25 +65,6 @@ export const ServicePathway: React.FC = () => {
                                     priority={index === 0}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 z-10" />
-
-                                <svg
-                                    className="absolute inset-0 z-20 pointer-events-none"
-                                    viewBox="0 0 100 100"
-                                    preserveAspectRatio="none"
-                                    aria-hidden
-                                >
-                                    <rect
-                                        x="1"
-                                        y="1"
-                                        width="98"
-                                        height="98"
-                                        pathLength="1"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        fill="none"
-                                        className="text-brand-accent [stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
-                                    />
-                                </svg>
 
                                 <div className="absolute bottom-0 left-0 w-full p-8 z-30">
                                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -98,6 +79,25 @@ export const ServicePathway: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            <svg
+                                className="pointer-events-none absolute inset-0 z-20 h-full w-full"
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="none"
+                                aria-hidden
+                            >
+                                <rect
+                                    x="1"
+                                    y="1"
+                                    width="98"
+                                    height="98"
+                                    pathLength="1"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    fill="none"
+                                    className="text-brand-accent [stroke-dasharray:1] [stroke-dashoffset:1] [transition:stroke-dashoffset_0.7s_cubic-bezier(0.16,1,0.3,1)] group-hover:[stroke-dashoffset:0]"
+                                />
+                            </svg>
                         </div>
                     ))}
                     <div className="shrink-0 w-6 sm:w-8 md:w-12" aria-hidden />
