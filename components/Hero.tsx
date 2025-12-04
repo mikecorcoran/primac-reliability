@@ -3,7 +3,27 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  title?: string;
+  description?: string;
+  primaryCta?: {
+    label?: string;
+    href?: string;
+  };
+  secondaryCta?: {
+    label?: string;
+    href?: string;
+  };
+  videoSrc?: string;
+}
+
+export const Hero: React.FC<HeroProps> = ({
+  title = "Rotating and Static Equipment Specialists",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus in urna a gravida, cum inceptos hymenaeos.",
+  primaryCta = { label: "Mitte Peritum", href: "#contact" },
+  secondaryCta = { label: "Explora Facultates", href: "#services" },
+  videoSrc = "/videos/hero-background-orig.mp4"
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,7 +45,7 @@ export const Hero: React.FC = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/videos/hero-background-orig.mp4" type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20" />
       </motion.div>
@@ -39,22 +59,26 @@ export const Hero: React.FC = () => {
           className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-brand-accent text-white"
         >
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
-            Rotating and Static Equipment Specialists
+            {title}
           </h2>
 
           <div className="mb-8">
             <p className="font-sans text-gray-200 text-base leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus in urna a gravida, cum inceptos hymenaeos.
+              {description}
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-4">
-            <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 bg-brand-accent text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-accentDark transition-colors">
-              Mitte Peritum
-            </a>
-            <a href="#services" className="inline-flex items-center justify-center px-6 py-3 border border-white text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors">
-              Explora Facultates
-            </a>
+            {primaryCta?.label && (
+              <a href={primaryCta.href || '#'} className="inline-flex items-center justify-center px-6 py-3 bg-brand-accent text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-accentDark transition-colors">
+                {primaryCta.label}
+              </a>
+            )}
+            {secondaryCta?.label && (
+              <a href={secondaryCta.href || '#'} className="inline-flex items-center justify-center px-6 py-3 border border-white text-white font-display font-bold text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors">
+                {secondaryCta.label}
+              </a>
+            )}
           </div>
         </motion.div>
       </div>

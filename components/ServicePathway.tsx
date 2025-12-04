@@ -2,7 +2,20 @@ import React from 'react';
 import Image from 'next/image';
 import { RevealSection } from './RevealSection';
 
-const SECTORS = [
+interface Sector {
+    title: string;
+    focus: string;
+    image: string;
+    link: string;
+}
+
+interface ServicePathwayProps {
+    title?: string;
+    subtitle?: string;
+    sectors?: Sector[];
+}
+
+const DEFAULT_SECTORS: Sector[] = [
     {
         title: "Metalla & Mineralia",
         focus: "Molendina, Conterentes, Vehicula",
@@ -35,15 +48,19 @@ const SECTORS = [
     }
 ];
 
-export const ServicePathway: React.FC = () => {
+export const ServicePathway: React.FC<ServicePathwayProps> = ({
+    title = "Sectorem Tuae Pete",
+    subtitle = "Iter Servitii",
+    sectors = DEFAULT_SECTORS
+}) => {
     return (
         <section className="py-24 bg-white border-b border-gray-100 overflow-hidden">
             <div className="max-w-[1920px] mx-auto px-6 md:px-12">
                 <RevealSection>
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                         <div>
-                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">Iter Servitii</h3>
-                            <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">Sectorem Tuae Pete</h2>
+                            <h3 className="font-display font-bold text-sm tracking-[0.2em] uppercase text-text-muted mb-4">{subtitle}</h3>
+                            <h2 className="font-display font-black text-4xl md:text-5xl text-text-main uppercase tracking-tight">{title}</h2>
                         </div>
                         <div className="hidden md:block">
                             <span className="font-sans text-xs text-text-muted font-bold">Volue ad Perscrutandum →</span>
@@ -53,7 +70,7 @@ export const ServicePathway: React.FC = () => {
 
                 <div className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide px-6 sm:px-8 md:px-12">
                     <div className="shrink-0 w-6 sm:w-8 md:w-12" aria-hidden />
-                    {SECTORS.map((sector, index) => (
+                    {sectors.map((sector, index) => (
                         <div key={sector.title} className="relative min-w-[300px] md:min-w-[400px] snap-start group">
                             <div className="relative h-[500px] overflow-hidden bg-gray-100 cursor-pointer">
                                 <Image

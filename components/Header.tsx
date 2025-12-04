@@ -6,32 +6,11 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavItem } from '../types';
 
-const NAV_ITEMS: NavItem[] = [
-  {
-    label: 'Serinova',
-    href: '/services/vibration-analysis',
-    children: [
-      { label: 'Stativa Vibronis', href: '/services/vibration-analysis' },
-      { label: 'Lazum Dorectis', href: '#' },
-      { label: 'Dynara Libretio', href: '#' },
-      { label: 'Ultraxa Probantis', href: '#' },
-    ]
-  },
-  {
-    label: 'Induriana',
-    href: '/industries/mining',
-    children: [
-      { label: 'Fessum & Exolatio', href: '/industries/mining' },
-      { label: 'Olefa & Gax', href: '#' },
-      { label: 'Lirna & Cherta', href: '#' },
-      { label: 'Potrena Generatia', href: '#' },
-    ]
-  },
-  { label: 'Virel et Cauta', href: '/trust-and-safety' },
-  { label: 'Condivio', href: '#contact' }
-];
+interface HeaderProps {
+  navItems: NavItem[];
+}
 
-export const Header: React.FC = () => {
+export const Header: React.FC<HeaderProps> = ({ navItems }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isHero, setIsHero] = useState(true);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -110,7 +89,7 @@ export const Header: React.FC = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-12" onMouseLeave={() => setHoveredItem(null)}>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <div
                 key={item.label}
                 className="relative group h-full"
@@ -174,7 +153,7 @@ export const Header: React.FC = () => {
                 <div className="col-span-3">
                   <h3 className="font-display text-text-muted tracking-widest text-xs uppercase mb-6">Explore {hoveredItem}</h3>
                   <ul className="space-y-4">
-                    {NAV_ITEMS.find(i => i.label === hoveredItem)?.children?.map(child => (
+                    {navItems.find(i => i.label === hoveredItem)?.children?.map(child => (
                       <li key={child.label}>
                         <Link
                           href={child.href}
@@ -222,7 +201,7 @@ export const Header: React.FC = () => {
             className="fixed inset-0 z-40 bg-white pt-32 px-6 md:hidden overflow-y-auto"
           >
             <nav className="flex flex-col gap-8 pb-12">
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <div key={item.label} className="border-b border-gray-100 pb-4">
                   <Link
                     href={item.href}

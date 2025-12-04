@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { BuilderRegistry } from "@/components/BuilderRegistry";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { getNavItems } from "@/lib/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,13 +33,16 @@ export const metadata: Metadata = {
     "Premium reliability engineering experiences inspired by the Sako Global aesthetic—precision, heritage, and modern engineering excellence.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const navItems = await getNavItems();
+
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${montserrat.variable} ${jetbrains.variable} bg-bg-page text-text-main selection:bg-brand-accent selection:text-white`}
       >
-        <Header />
+        <BuilderRegistry />
+        <Header navItems={navItems} />
         {children}
         <div id="contact">
           <Footer />
