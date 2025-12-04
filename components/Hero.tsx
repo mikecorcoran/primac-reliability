@@ -38,6 +38,10 @@ export const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-brand-accent text-white"
         >
+          <div className="flex items-center gap-3 text-brand-accent uppercase tracking-[0.3em] font-display text-xs mb-4">
+            <span className="h-px w-10 bg-brand-accent" />
+            <span>Rotating and Static Equipment Specialists</span>
+          </div>
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
             Quies<br />
             Fidelitatis.
