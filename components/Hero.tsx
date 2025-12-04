@@ -43,8 +43,7 @@ export const Hero: React.FC = () => {
             <span>Rotating and Static Equipment Specialists</span>
           </div>
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
-            Quies<br />
-            Fidelitatis.
+            Rotating and Static Equipment Specialists
           </h2>
 
           <div className="mb-8">
