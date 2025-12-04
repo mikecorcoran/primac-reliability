@@ -13,7 +13,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'Stativa Vibronis', href: '/services/vibration-analysis' },
       { label: 'Lazum Dorectis', href: '#' },
-      { label: 'Dynara Libretio', href: '#' },
+      { label: 'Dynara Libretio', href: '/dynara-libretio' },
       { label: 'Ultraxa Probantis', href: '#' },
     ]
   },
