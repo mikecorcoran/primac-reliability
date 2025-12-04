@@ -39,8 +39,7 @@ export const Hero: React.FC = () => {
           className="max-w-xl bg-black/40 backdrop-blur-xl p-8 md:p-10 border-l-4 border-brand-accent text-white"
         >
           <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight leading-[0.9] mb-6">
-            Quies<br />
-            Fidelitatis.
+            Rotating and Static Equipment Specialists
           </h2>
 
           <div className="mb-8">
