@@ -1,4 +1,4 @@
-import { builder } from '@builder.io/react';
+import { builder } from '@builder.io/sdk';
 
 // Public API key will be provided via NEXT_PUBLIC_BUILDER_API_KEY
 if (!process.env.NEXT_PUBLIC_BUILDER_API_KEY) {
