@@ -1,7 +1,7 @@
 import builderDevTools from "@builder.io/dev-tools/next";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = builderDevTools()({
+const nextConfig = {
   images: {
     remotePatterns: [
       {
@@ -14,6 +14,9 @@ const nextConfig = builderDevTools()({
       },
     ],
   },
-});
+};
 
-export default nextConfig;
+// Only wrap with builderDevTools in development
+export default process.env.NODE_ENV === 'development'
+  ? builderDevTools()(nextConfig)
+  : nextConfig;

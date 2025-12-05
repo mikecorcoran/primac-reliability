@@ -1,0 +1,29 @@
+
+> primac-reliability@0.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.33
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+TypeError: (0 , r.createContext) is not a function
+    at 2082 (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\chunks\257.js:2:273825)
+    at t (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\webpack-runtime.js:1:127)
+    at 3373 (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\chunks\257.js:2:61360)
+    at t (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\webpack-runtime.js:1:127)
+    at 1016 (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\chunks\379.js:4:9982)
+    at t (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\webpack-runtime.js:1:127)
+    at 8155 (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\chunks\379.js:4:8696)
+    at t (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\webpack-runtime.js:1:127)
+    at 6622 (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\app\_not-found\page.js:1:807)
+    at t (C:\My Web Sites\primac-reliability-2\primac-reliability\.next\server\webpack-runtime.js:1:127)
+
+> Build error occurred
+Error: Failed to collect page data for /_not-found
+    at C:\My Web Sites\primac-reliability-2\primac-reliability\node_modules\next\dist\build\utils.js:1269:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  type: 'Error'
+}
