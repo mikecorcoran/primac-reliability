@@ -6,8 +6,15 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 type Params = { page?: string[] };
+type SearchParams = { [key: string]: string | string[] | undefined };
 
-export default async function BuilderPage({ params }: { params: Params }) {
+export default async function BuilderPage({
+    params,
+    searchParams,
+}: {
+    params: Params;
+    searchParams: SearchParams;
+}) {
     const urlPath =
         '/' + (params.page && params.page.length ? params.page.join('/') : '');
 
@@ -18,7 +25,12 @@ export default async function BuilderPage({ params }: { params: Params }) {
         })
         .toPromise();
 
-    if (!content) {
+    const isPreviewing =
+        !!searchParams?.['builder.preview'] ||
+        !!searchParams?.['__builder_editing__'];
+
+    // Only return 404 if NOT previewing and NO content found
+    if (!content && !isPreviewing) {
         notFound();
     }
 
