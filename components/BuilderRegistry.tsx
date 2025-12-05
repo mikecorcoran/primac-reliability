@@ -1,6 +1,10 @@
 'use client';
-import './builder-registry';
+import { useEffect } from 'react';
 
 export function BuilderRegistry() {
+    useEffect(() => {
+        import('./builder-registry');
+    }, []);
+
     return null;
 }
