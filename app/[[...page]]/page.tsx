@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { BuilderComponent } from '@builder.io/react';
 import { builder } from '@/lib/builder';
+import { BuilderPageContent } from '@/components/BuilderPageContent';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -22,5 +22,5 @@ export default async function BuilderPage({ params }: { params: Params }) {
         notFound();
     }
 
-    return <BuilderComponent model="page" content={content} />;
+    return <BuilderPageContent model="page" content={content} />;
 }
